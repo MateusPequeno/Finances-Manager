@@ -1,21 +1,36 @@
-import { StatusBar } from 'expo-status-bar';
-import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import React from "react";
+import Routes from "./src/routes";
+//Importando fonte do google, roboto.
+import {
+  Roboto_400Regular,
+  Roboto_300Light,
+  useFonts,
+} from "@expo-google-fonts/roboto";
+import {
+  Montserrat_400Regular,
+  Montserrat_300Light,
+} from "@expo-google-fonts/montserrat";
+import AppLoading from "expo-app-loading";
 
 export default function App() {
-  return (
-    <View style={styles.container}>
-      <Text>Open up App.tsx to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
-  );
+  const [fontsLoaded] = useFonts({
+    Roboto_400Regular,
+    Roboto_300Light,
+    Montserrat_400Regular,
+    Montserrat_300Light,
+  });
+
+  if (!fontsLoaded) return <AppLoading />;
+  return <Routes />;
 }
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
+/*Para fazer a navegação precisamos do react-navigation 
+
+yarn add @react-navigation/native
+
+expo install react-native-gesture-handler react-native-reanimated
+ react-native-screens react-native-safe-area-context 
+ @react-native-community/masked-view
+//json-server ./src/services/server.json --host 192.168.0.10 --port 3333 --delay 700
+ yarn add @react-navigation/stack
+*/
