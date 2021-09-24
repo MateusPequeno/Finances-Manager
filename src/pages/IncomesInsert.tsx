@@ -10,12 +10,15 @@ import {
   CheckBox,
   TextInput,
   Platform,
+  ImageBackground,
 } from "react-native";
 import { useNavigation } from "@react-navigation/core";
 import { Button } from "../../src/components/Button";
 import { Picker } from "@react-native-picker/picker";
 import DateTimePicker from "@react-native-community/datetimepicker";
 import fonts from "../styles/fonts";
+import blueBck from "../../assets/blueBck.jpg";
+
 export function IncomesInsert() {
   const [isFocused, setIsFocused] = useState(false);
   const [isFilled, setIsFilled] = useState(false);
@@ -49,83 +52,81 @@ export function IncomesInsert() {
     setIsFocused(true);
   }
   function handleNextPage() {
-    navigation.navigate("IncomesInsert");
+    navigation.navigate("Overview");
   }
   return (
-    <SafeAreaView style={styles.container}>
-      <KeyboardAvoidingView style={styles.container}>
-        <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
-          <View style={styles.content}>
-            <View style={styles.form}>
-              <Text style={styles.title}>Inserir novo rendimento</Text>
-              <Text style={styles.subTitle}>Valor do rendimento :</Text>
-              <TextInput
-                style={[
-                  styles.input,
-                  (isFocused || isFilled) && { borderColor: "#FFC062" }, //&& seria o então
-                ]}
-                placeholder="R$ 00.00"
-                onBlur={handleInputBlur}
-                onFocus={handleInputFocus}
-              />
-              <Button onPress={showDatepicker} title="Show date picker!" />
-              {show && (
-                <DateTimePicker
-                  testID="dateTimePicker"
-                  value={new Date()}
-                  mode={mode}
-                  is24Hour={true}
-                  display="default"
-                  onChange={onChange}
+    <ImageBackground source={blueBck} style={styles.blueBck}>
+      <SafeAreaView style={styles.container}>
+        <KeyboardAvoidingView style={styles.container}>
+          <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
+            <View style={styles.content}>
+              <View style={styles.form}>
+                <Text style={styles.title}>Inserir novo rendimento</Text>
+                <Text style={styles.subTitle}>Valor do rendimento :</Text>
+                <TextInput
+                  style={[
+                    styles.input,
+                    (isFocused || isFilled) && { borderColor: "#FFC062" }, //&& seria o então
+                  ]}
+                  placeholder="R$ 00.00"
+                  onBlur={handleInputBlur}
+                  onFocus={handleInputFocus}
                 />
-              )}
-              <Text style={styles.subTitle}>Data:</Text>
-              <TextInput
-                style={[
-                  styles.input,
-                  (isFocused || isFilled) && { borderColor: "#FFC062" }, //&& seria o então
-                ]}
-                placeholder="01/01/2021"
-                onBlur={handleInputBlur}
-                onFocus={handleInputFocus}
-              />
-              <Text style={styles.subTitle}>Categorias:</Text>
-              <View style={styles.extraPicker}>
-                <Picker
-                  style={styles.picker}
-                  selectedValue={selectedCategory}
-                  onValueChange={(itemValue, itemIndex) =>
-                    setselectedCategory(itemValue)
-                  }
-                >
-                  <Picker.Item label="Salário" value="salario" />
-                  <Picker.Item label="Emprestimos" value="emprestimos" />
-                  <Picker.Item label="Investimentos" value="investimentos" />
-                  <Picker.Item label="Outros" value="outros" />
-                </Picker>
-              </View>
-              <Text style={styles.subTitle}>Repetir:</Text>
-              <View style={styles.rowConfig}>
-                <CheckBox
-                  style={styles.checkBox}
-                  value={isSelected}
-                  onValueChange={setSelection}
+                <Text style={styles.subTitle}>Data:</Text>
+                <Button
+                  onPress={showDatepicker}
+                  style={styles.dateButton}
+                  title="Insira a data"
                 />
-                <Text style={styles.subTitle}>
-                  {isSelected ? "É uma receita fixa" : "Não é uma receita fixa"}
-                </Text>
+                {show && (
+                  <DateTimePicker
+                    testID="dateTimePicker"
+                    value={new Date()}
+                    mode={mode}
+                    is24Hour={true}
+                    display="default"
+                    onChange={onChange}
+                  />
+                )}
+                <Text style={styles.subTitle}>Categorias:</Text>
+                <View style={styles.extraPicker}>
+                  <Picker
+                    style={styles.picker}
+                    selectedValue={selectedCategory}
+                    onValueChange={(itemValue, itemIndex) =>
+                      setselectedCategory(itemValue)
+                    }
+                  >
+                    <Picker.Item label="Salário" value="salario" />
+                    <Picker.Item label="Emprestimos" value="emprestimos" />
+                    <Picker.Item label="Investimentos" value="investimentos" />
+                    <Picker.Item label="Outros" value="outros" />
+                  </Picker>
+                </View>
+                <Text style={styles.subTitle}>Repetir:</Text>
+                <View style={styles.rowConfig}>
+                  <CheckBox
+                    style={styles.checkBox}
+                    value={isSelected}
+                    onValueChange={setSelection}
+                  />
+                  <Text style={styles.subTitle}>
+                    {isSelected
+                      ? "É uma receita fixa"
+                      : "Não é uma receita fixa"}
+                  </Text>
+                </View>
+                <Button title={"Vamos la!"} onPress={handleNextPage} />
               </View>
-              <Button title={"Vamos la!"} onPress={handleNextPage} />
             </View>
-          </View>
-        </TouchableWithoutFeedback>
-      </KeyboardAvoidingView>
-    </SafeAreaView>
+          </TouchableWithoutFeedback>
+        </KeyboardAvoidingView>
+      </SafeAreaView>
+    </ImageBackground>
   );
 }
 const styles = StyleSheet.create({
   container: {
-    backgroundColor: "#1932B1",
     flex: 1,
     width: "100%",
     alignItems: "center",
@@ -191,5 +192,21 @@ const styles = StyleSheet.create({
     width: "100%",
     height: "6%",
     fontSize: 50,
+  },
+  dateButton: {
+    backgroundColor: "#ffffff",
+    height: 56,
+    width: 344,
+    borderRadius: 100,
+    justifyContent: "center",
+    alignItems: "center",
+    fontSize: 25,
+    lineHeight: 32,
+    textAlign: "center",
+    color: "#ffffff",
+    fontFamily: fonts.text,
+  },
+  blueBck: {
+    flex: 1,
   },
 });

@@ -8,27 +8,40 @@ import {
   View,
   Image,
   Dimensions,
+  ImageBackground,
 } from "react-native";
 import { Button } from "../../src/components/Button";
 import fonts from "../styles/fonts";
-
+import blueBck from "../../assets/blueBck.jpg";
+import { useNavigation } from "@react-navigation/native";
 export function SavingOBJ() {
+  const navigation = useNavigation();
+  function handlePress() {
+    navigation.navigate("Register");
+  }
   return (
     <>
-      <SafeAreaView style={styles.container}>
-        <View>
-          <Text style={styles.headerText}>Começar a poupar</Text>
-          <StatusBar style="auto" />
-        </View>
-        <View>
-          <Text style={styles.descriptionText}>
-            Com disciplina, consciência, comprometimento e atenção mais nosso
-            app você conseguira poupar dinheiro para conquistar seus objetivos!
-          </Text>
-        </View>
-        <Image source={savingImage} style={styles.image} resizeMode="contain" />
-        <Button title={"Vamos la!"} onPress={() => {}} />
-      </SafeAreaView>
+      <ImageBackground source={blueBck} style={styles.blueBck}>
+        <SafeAreaView style={styles.container}>
+          <View>
+            <Text style={styles.headerText}>Começar a poupar</Text>
+            <StatusBar style="auto" />
+          </View>
+          <View>
+            <Text style={styles.descriptionText}>
+              Com disciplina, consciência, comprometimento e atenção mais nosso
+              app você conseguira poupar dinheiro para conquistar seus
+              objetivos!
+            </Text>
+          </View>
+          <Image
+            source={savingImage}
+            style={styles.image}
+            resizeMode="contain"
+          />
+          <Button title={"Vamos la!"} onPress={handlePress} />
+        </SafeAreaView>
+      </ImageBackground>
     </>
   );
 }
@@ -36,7 +49,7 @@ export function SavingOBJ() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "#1932B1",
+
     alignItems: "center",
     justifyContent: "center",
   },
@@ -58,5 +71,9 @@ const styles = StyleSheet.create({
     color: "white",
     padding: 10,
     fontFamily: fonts.text,
+  },
+  blueBck: {
+    flex: 1,
+    justifyContent: "center",
   },
 });

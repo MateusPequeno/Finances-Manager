@@ -31,6 +31,7 @@ const AppRoutes: React.FC = () => (
     <stackRoutes.Screen name="IncomesInsert" component={IncomesInsert} />
     <stackRoutes.Screen name="Register" component={Register} />
     <stackRoutes.Screen name="Dashboard" component={AuthRoutes} />
+
     <stackRoutes.Screen name="BalanceInsert" component={BalanceInsert} />
   </stackRoutes.Navigator>
 );

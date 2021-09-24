@@ -7,10 +7,12 @@ import {
   View,
   Image,
   Dimensions,
+  ImageBackground,
 } from "react-native";
 import { Button } from "../../src/components/Button";
 import { useNavigation } from "@react-navigation/native";
 import fonts from "../styles/fonts";
+import blueBck from "../../assets/blueBck.jpg";
 
 export function Objectives() {
   const navigation = useNavigation();
@@ -28,22 +30,29 @@ export function Objectives() {
   }
   return (
     <>
-      <SafeAreaView style={styles.container}>
-        <View>
-          <Text style={styles.headerText}>Qual o seu objetivo?</Text>
-          <StatusBar style="auto" />
-        </View>
-        <View>
-          <Text style={styles.descriptionText}>
-            Cuidar das suas finanças fica mais fácil se soubermos seu objetivo.
-          </Text>
-        </View>
+      <ImageBackground
+        source={blueBck}
+        resizeMode="cover"
+        style={styles.blueBck}
+      >
+        <SafeAreaView style={styles.container}>
+          <View>
+            <Text style={styles.headerText}>Qual o seu objetivo?</Text>
+            <StatusBar style="auto" />
+          </View>
+          <View>
+            <Text style={styles.descriptionText}>
+              Cuidar das suas finanças fica mais fácil se soubermos seu
+              objetivo.
+            </Text>
+          </View>
 
-        <Button title={"Quitar minhas dividas"} onPress={handleDebt} />
-        <Button title={"Começar a poupar"} onPress={handleSaving} />
-        <Button title={"Começar a investir"} onPress={handleInvest} />
-        <Button title={"Organizar finanças"} onPress={handleOrg} />
-      </SafeAreaView>
+          <Button title={"Quitar minhas dividas"} onPress={handleDebt} />
+          <Button title={"Começar a poupar"} onPress={handleSaving} />
+          <Button title={"Começar a investir"} onPress={handleInvest} />
+          <Button title={"Organizar finanças"} onPress={handleOrg} />
+        </SafeAreaView>
+      </ImageBackground>
     </>
   );
 }
@@ -51,7 +60,6 @@ export function Objectives() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "#1932B1",
     alignItems: "center",
     justifyContent: "center",
   },
@@ -72,5 +80,9 @@ const styles = StyleSheet.create({
     color: "white",
     fontFamily: fonts.text,
     padding: 10,
+  },
+  blueBck: {
+    flex: 1,
+    justifyContent: "center",
   },
 });

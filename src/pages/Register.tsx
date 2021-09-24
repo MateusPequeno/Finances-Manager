@@ -9,11 +9,13 @@ import {
   Keyboard,
   TouchableWithoutFeedback,
   Alert,
+  ImageBackground,
 } from "react-native";
 import { useNavigation } from "@react-navigation/core";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import { Button } from "../components/Button";
 import fonts from "../styles/fonts";
+import blueBck from "../../assets/blueBck.jpg";
 
 export function Register() {
   //Determinando o padrão de blur e preenchimento como falso.
@@ -22,6 +24,7 @@ export function Register() {
   const [name, setName] = useState<string>(); // para tipar o dado se coloca o string
   const [balance, setBalance] = useState<string>();
   const navigation = useNavigation();
+
   function handleInputBlur() {
     setIsFocused(false);
     setIsFilled(!!name);
@@ -61,48 +64,50 @@ export function Register() {
     }
   }
   return (
-    <SafeAreaView style={styles.container}>
-      <KeyboardAvoidingView style={styles.container}>
-        <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
-          <View style={styles.content}>
-            <View style={styles.form}>
-              <Text style={styles.emoji}>😀</Text>
-              <Text style={styles.title}>
-                Como podemos {"\n"}
-                chamar você?
-              </Text>
-              <TextInput
-                style={[
-                  styles.input,
-                  (isFocused || isFilled) && { borderColor: "#FFC062" },
-                  //&& seria o então
-                ]}
-                placeholder="Digite seu nome"
-                placeholderTextColor="grey"
-                onBlur={handleInputBlur}
-                onFocus={handleInputFocus}
-                onChangeText={handleInputChange}
-              />
-              <Text style={styles.title}>Qual o seu Saldo total atual?</Text>
-              <TextInput
-                style={[
-                  styles.input,
-                  (isFocused || isFilled) && { borderColor: "#FFC062" },
-                ]}
-                placeholder=" 10000.00  "
-                placeholderTextColor="grey"
-                onBlur={handleInputBlur}
-                onFocus={handleInputFocus}
-                onChangeText={handleInputChangeBalance}
-              />
-              <View style={styles.footer}>
-                <Button title="Continuar" onPress={handleSubmit} />
+    <ImageBackground source={blueBck} style={styles.blueBck}>
+      <SafeAreaView style={styles.container}>
+        <KeyboardAvoidingView style={styles.container}>
+          <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
+            <View style={styles.content}>
+              <View style={styles.form}>
+                <Text style={styles.emoji}>😀</Text>
+                <Text style={styles.title}>
+                  Como podemos {"\n"}
+                  chamar você?
+                </Text>
+                <TextInput
+                  style={[
+                    styles.input,
+                    (isFocused || isFilled) && { borderColor: "#FFC062" },
+                    //&& seria o então
+                  ]}
+                  placeholder="Digite seu nome"
+                  placeholderTextColor="grey"
+                  onBlur={handleInputBlur}
+                  onFocus={handleInputFocus}
+                  onChangeText={handleInputChange}
+                />
+                <Text style={styles.title}>Qual o seu Saldo total atual?</Text>
+                <TextInput
+                  style={[
+                    styles.input,
+                    (isFocused || isFilled) && { borderColor: "#FFC062" },
+                  ]}
+                  placeholder=" 10000.00  "
+                  placeholderTextColor="grey"
+                  onBlur={handleInputBlur}
+                  onFocus={handleInputFocus}
+                  onChangeText={handleInputChangeBalance}
+                />
+                <View style={styles.footer}>
+                  <Button title="Continuar" onPress={handleSubmit} />
+                </View>
               </View>
             </View>
-          </View>
-        </TouchableWithoutFeedback>
-      </KeyboardAvoidingView>
-    </SafeAreaView>
+          </TouchableWithoutFeedback>
+        </KeyboardAvoidingView>
+      </SafeAreaView>
+    </ImageBackground>
   );
 }
 const styles = StyleSheet.create({
@@ -111,7 +116,6 @@ const styles = StyleSheet.create({
     width: "100%",
     alignItems: "center",
     justifyContent: "space-around",
-    backgroundColor: "#1932B1",
   },
   content: {
     flex: 1,
@@ -157,5 +161,8 @@ const styles = StyleSheet.create({
   footer: {
     marginTop: 40,
     paddingHorizontal: 0,
+  },
+  blueBck: {
+    flex: 1,
   },
 });
