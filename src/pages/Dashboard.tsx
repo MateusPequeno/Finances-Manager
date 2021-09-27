@@ -1,12 +1,11 @@
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import { useNavigation } from "@react-navigation/core";
 import React, { useEffect, useState } from "react";
-import { StyleSheet, Text, Image, View, Button } from "react-native";
+import { Text, Image, View, Button } from "react-native";
 import UserImg from "../../assets/UserAvatar.png";
-import fonts from "../styles/fonts";
 import { SimpleLineIcons, AntDesign } from "@expo/vector-icons";
 import { ScrollView } from "react-native-gesture-handler";
-
+import styles from "../styles/cssconfig";
 export function Dashboard() {
   //ARMAZENAR ESTADO
   const navigation = useNavigation();
@@ -40,12 +39,12 @@ export function Dashboard() {
   return (
     <>
       <ScrollView>
-        <View style={styles.container}>
+        <View style={styles.containerDashboard}>
           <View>
             <Text style={styles.greeting}>Olá</Text>
             <Text style={styles.userName}>{userName}</Text>
           </View>
-          <Image source={UserImg} style={styles.image} />
+          <Image source={UserImg} style={styles.imageProf} />
         </View>
         <View style={styles.card}>
           <Text style={styles.saldoGeral} onPress={handleBalancePress}>
@@ -94,78 +93,3 @@ export function Dashboard() {
     </>
   );
 }
-const styles = StyleSheet.create({
-  container: {
-    width: "100%",
-    flexDirection: "row",
-    justifyContent: "space-between",
-    alignItems: "center",
-    paddingVertical: 20,
-    padding: 20,
-    backgroundColor: "#1932B1",
-  },
-  image: {
-    width: 80,
-    height: 80,
-    borderRadius: 40,
-  },
-  greeting: {
-    fontSize: 32,
-    color: "#ffffff",
-    fontFamily: fonts.text,
-    marginTop: 10,
-  },
-  userName: {
-    fontSize: 32,
-    fontFamily: fonts.heading,
-    color: "#ffffff",
-    lineHeight: 40,
-  },
-  card: {
-    justifyContent: "center",
-    alignItems: "center",
-  },
-  saldoGeral: {
-    fontSize: 25,
-    fontFamily: fonts.text,
-  },
-
-  incomesAndDebt: {
-    marginTop: 6,
-    flexDirection: "row",
-  },
-  despesa: {
-    fontSize: 19,
-    fontFamily: fonts.montText,
-    color: "red",
-    fontWeight: "bold",
-  },
-  despesaValor: {
-    fontSize: 19,
-    fontFamily: fonts.montText,
-    color: "red",
-    fontWeight: "bold",
-  },
-  textosIncAndDebt: {
-    flexDirection: "column",
-  },
-  rendimento: {
-    fontSize: 19,
-    fontFamily: fonts.montText,
-    color: "green",
-    fontWeight: "bold",
-  },
-  rendimentoValor: {
-    fontSize: 19,
-    fontFamily: fonts.montText,
-    color: "green",
-    fontWeight: "bold",
-  },
-  despesasCatego: {
-    fontSize: 20,
-    fontFamily: fonts.montText,
-    color: "black",
-    fontWeight: "bold",
-    padding: 28,
-  },
-});

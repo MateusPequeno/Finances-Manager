@@ -1,19 +1,11 @@
 import { StatusBar } from "expo-status-bar";
 import React from "react";
 import organizeImg from "../../assets/management.png";
-import blueBck from "../../assets/blueBck.jpg";
-import {
-  SafeAreaView,
-  StyleSheet,
-  Text,
-  View,
-  Image,
-  Dimensions,
-  ImageBackground,
-} from "react-native";
+import bckImage from "../../assets/blueBck.jpg";
+import { SafeAreaView, Text, View, Image, ImageBackground } from "react-native";
 import { Button } from "../../src/components/Button";
-import fonts from "../styles/fonts";
 import { useNavigation } from "@react-navigation/native";
+import styles from "../styles/cssconfig";
 
 export function OrgOBJ() {
   const navigation = useNavigation();
@@ -22,14 +14,14 @@ export function OrgOBJ() {
   }
   return (
     <>
-      <ImageBackground source={blueBck} style={styles.blueBck}>
+      <ImageBackground source={bckImage} style={styles.bckImage}>
         <SafeAreaView style={styles.container}>
           <View>
             <Text style={styles.headerText}>Organizar finanças</Text>
             <StatusBar style="auto" />
           </View>
           <View>
-            <Text style={styles.descriptionText}>
+            <Text style={styles.descriptionTextOBJ}>
               Para ter maior organização, vamos te mostrar gráficos de suas
               despesas, rendimentos, desenvolvimento e relação entre
               rendimentos-despesas.
@@ -46,32 +38,3 @@ export function OrgOBJ() {
     </>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    alignItems: "center",
-    justifyContent: "center",
-  },
-  headerText: {
-    fontSize: 50,
-    fontFamily: fonts.heading,
-    textAlign: "center",
-    color: "white",
-    marginBottom: 20,
-  },
-  image: {
-    width: 322,
-    height: Dimensions.get("window").width * 0.7,
-  },
-  descriptionText: {
-    fontSize: 25,
-    textAlign: "center",
-    color: "white",
-    padding: 10,
-    fontFamily: fonts.text,
-  },
-  blueBck: {
-    flex: 1,
-  },
-});

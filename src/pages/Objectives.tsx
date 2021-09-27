@@ -1,18 +1,10 @@
 import { StatusBar } from "expo-status-bar";
 import React from "react";
-import {
-  SafeAreaView,
-  StyleSheet,
-  Text,
-  View,
-  Image,
-  Dimensions,
-  ImageBackground,
-} from "react-native";
+import { SafeAreaView, Text, View, ImageBackground } from "react-native";
 import { Button } from "../../src/components/Button";
 import { useNavigation } from "@react-navigation/native";
-import fonts from "../styles/fonts";
-import blueBck from "../../assets/blueBck.jpg";
+import bckImage from "../../assets/blueBck.jpg";
+import styles from "../styles/cssconfig";
 
 export function Objectives() {
   const navigation = useNavigation();
@@ -31,9 +23,9 @@ export function Objectives() {
   return (
     <>
       <ImageBackground
-        source={blueBck}
+        source={bckImage}
         resizeMode="cover"
-        style={styles.blueBck}
+        style={styles.bckImage}
       >
         <SafeAreaView style={styles.container}>
           <View>
@@ -41,7 +33,7 @@ export function Objectives() {
             <StatusBar style="auto" />
           </View>
           <View>
-            <Text style={styles.descriptionText}>
+            <Text style={styles.descriptionTextOBJ}>
               Cuidar das suas finanças fica mais fácil se soubermos seu
               objetivo.
             </Text>
@@ -56,33 +48,3 @@ export function Objectives() {
     </>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    alignItems: "center",
-    justifyContent: "center",
-  },
-  headerText: {
-    fontSize: 50,
-    fontFamily: fonts.heading,
-    textAlign: "center",
-    color: "white",
-    marginBottom: 20,
-  },
-  image: {
-    width: 300,
-    height: Dimensions.get("window").width * 0.7,
-  },
-  descriptionText: {
-    fontSize: 25,
-    textAlign: "center",
-    color: "white",
-    fontFamily: fonts.text,
-    padding: 10,
-  },
-  blueBck: {
-    flex: 1,
-    justifyContent: "center",
-  },
-});

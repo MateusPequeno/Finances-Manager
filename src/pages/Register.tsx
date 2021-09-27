@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import {
-  StyleSheet,
   SafeAreaView,
   View,
   Text,
@@ -14,8 +13,8 @@ import {
 import { useNavigation } from "@react-navigation/core";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import { Button } from "../components/Button";
-import fonts from "../styles/fonts";
-import blueBck from "../../assets/blueBck.jpg";
+import bckImage from "../../assets/blueBck.jpg";
+import styles from "../styles/cssconfig";
 
 export function Register() {
   //Determinando o padrão de blur e preenchimento como falso.
@@ -53,8 +52,7 @@ export function Register() {
       await AsyncStorage.setItem("@pcc-app:balance", balance);
       //Definindo a chave para salver o usuário assim como seu nome
       navigation.navigate("Dashboard", {
-        title: "Prontinho",
-        subtitle: "Teste Teste Teste",
+        title: "Pronto",
         buttonTitle: "Começar",
         icon: "smile",
         nextScreen: "Dashboard",
@@ -64,7 +62,7 @@ export function Register() {
     }
   }
   return (
-    <ImageBackground source={blueBck} style={styles.blueBck}>
+    <ImageBackground source={bckImage} style={styles.bckImage}>
       <SafeAreaView style={styles.container}>
         <KeyboardAvoidingView style={styles.container}>
           <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
@@ -110,59 +108,3 @@ export function Register() {
     </ImageBackground>
   );
 }
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    width: "100%",
-    alignItems: "center",
-    justifyContent: "space-around",
-  },
-  content: {
-    flex: 1,
-    width: "100%",
-  },
-  form: {
-    flex: 1,
-    justifyContent: "center",
-    paddingHorizontal: 20,
-    alignItems: "center",
-  },
-  emoji: {
-    fontSize: 30,
-  },
-  input: {
-    borderWidth: 1,
-    borderColor: "#fcfcfc",
-    backgroundColor: "#ffffff",
-    color: "#000",
-    width: "100%",
-    fontSize: 18,
-    marginTop: 15,
-    padding: 10,
-    textAlign: "center",
-    borderRadius: 20,
-  },
-  title: {
-    marginTop: 20, // Espaço o titulo do icone
-    fontSize: 20,
-    lineHeight: 32,
-    textAlign: "center",
-    color: "#ffffff",
-    fontFamily: fonts.heading,
-  },
-  subTitle: {
-    marginTop: 10, // Espaço o titulo do icone
-    fontSize: 25,
-    lineHeight: 32,
-    textAlign: "center",
-    color: "#ffffff",
-    fontFamily: fonts.text,
-  },
-  footer: {
-    marginTop: 40,
-    paddingHorizontal: 0,
-  },
-  blueBck: {
-    flex: 1,
-  },
-});

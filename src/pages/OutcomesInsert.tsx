@@ -1,8 +1,6 @@
-import { StatusBar } from "expo-status-bar";
 import React, { useState, useRef } from "react";
 import {
   SafeAreaView,
-  StyleSheet,
   Text,
   View,
   KeyboardAvoidingView,
@@ -17,8 +15,8 @@ import { useNavigation } from "@react-navigation/core";
 import { Button } from "../../src/components/Button";
 import { Picker } from "@react-native-picker/picker";
 import DateTimePicker from "@react-native-community/datetimepicker";
-import fonts from "../styles/fonts";
-import blueBck from "../../assets/blueBck.jpg";
+import styles from "../styles/cssconfig";
+import bckImage from "../../assets/blueBck.jpg";
 
 export function OutcomesInsert() {
   const [isFocused, setIsFocused] = useState(false);
@@ -59,7 +57,7 @@ export function OutcomesInsert() {
     navigation.navigate("Overview");
   }
   return (
-    <ImageBackground source={blueBck} style={styles.blueBck}>
+    <ImageBackground source={bckImage} style={styles.bckImage}>
       <SafeAreaView style={styles.container}>
         <KeyboardAvoidingView style={styles.container}>
           <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
@@ -136,88 +134,3 @@ export function OutcomesInsert() {
     </ImageBackground>
   );
 }
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    width: "100%",
-    alignItems: "center",
-    justifyContent: "space-around",
-  },
-  content: {
-    flex: 1,
-    width: "100%",
-  },
-  form: {
-    flex: 1,
-    justifyContent: "center",
-    paddingHorizontal: 20,
-    alignItems: "center",
-  },
-  input: {
-    borderWidth: 1,
-    borderColor: "#fcfcfc",
-    backgroundColor: "#ffffff",
-    color: "#000",
-    width: "100%",
-    fontSize: 18,
-    marginTop: 15,
-    padding: 10,
-    textAlign: "center",
-    borderRadius: 20,
-  },
-  dateButton: {
-    backgroundColor: "#ffffff",
-    height: 56,
-    width: 344,
-    borderRadius: 100,
-    justifyContent: "center",
-    alignItems: "center",
-    fontSize: 25,
-    lineHeight: 32,
-    textAlign: "center",
-    color: "#ffffff",
-    fontFamily: fonts.text,
-  },
-  title: {
-    marginTop: 20, // Espaço o titulo do icone
-    fontSize: 20,
-    lineHeight: 32,
-    textAlign: "center",
-    color: "#ffffff",
-    fontFamily: fonts.heading,
-  },
-  subTitle: {
-    marginTop: 10, // Espaço o titulo do icone
-    fontSize: 25,
-    lineHeight: 32,
-    textAlign: "center",
-    color: "#ffffff",
-    fontFamily: fonts.text,
-  },
-  rowConfig: {
-    marginTop: 10,
-    flexDirection: "row",
-  },
-  checkBox: {
-    height: 50,
-    width: 50,
-  },
-  picker: {
-    color: "#000000",
-    marginTop: 10,
-    padding: 0,
-    textAlign: "center",
-  },
-  extraPicker: {
-    borderWidth: 1,
-    borderColor: "white",
-    backgroundColor: "white",
-    borderRadius: 10,
-    width: "100%",
-    height: "6%",
-    fontSize: 50,
-  },
-  blueBck: {
-    flex: 1,
-  },
-});
