@@ -21,7 +21,7 @@ export function Register() {
   const [isFocused, setIsFocused] = useState(false);
   const [isFilled, setIsFilled] = useState(false);
   const [name, setName] = useState<string>(); // para tipar o dado se coloca o string
-  const [balance, setBalance] = useState<string>();
+  const [balance, setBalance] = useState();
   const navigation = useNavigation();
 
   function handleInputBlur() {
@@ -36,7 +36,7 @@ export function Register() {
     //Caso tenha conteúdo será verdadeiro, se não tiver falso.
     setName(value);
   }
-  function handleInputChangeBalance(value: string) {
+  function handleInputChangeBalance(value: React.SetStateAction<undefined>) {
     setIsFilled(!!value); //value passa a ser um conteudo lógico, 1 verdadeiro 0 falso
     //Caso tenha conteúdo será verdadeiro, se não tiver falso.
     setBalance(value);
@@ -49,7 +49,7 @@ export function Register() {
     //Async pois não é imediato e await para aguardar
     try {
       await AsyncStorage.setItem("@pcc-app:user", name);
-      await AsyncStorage.setItem("@pcc-app:balance", balance);
+      await AsyncStorage.setItem("@pcc-app:balance", JSON.stringify(balance));
       //Definindo a chave para salver o usuário assim como seu nome
       navigation.navigate("Dashboard", {
         title: "Pronto",
@@ -91,7 +91,7 @@ export function Register() {
                     styles.input,
                     (isFocused || isFilled) && { borderColor: "#FFC062" },
                   ]}
-                  placeholder=" 10000.00  "
+                  placeholder="10000.00"
                   placeholderTextColor="grey"
                   onBlur={handleInputBlur}
                   onFocus={handleInputFocus}

@@ -11,6 +11,8 @@ import {
   Montserrat_300Light,
 } from "@expo-google-fonts/montserrat";
 import AppLoading from "expo-app-loading";
+import { Provider } from "react-redux";
+import store from "./src/store";
 
 export default function App() {
   const [fontsLoaded] = useFonts({
@@ -21,16 +23,9 @@ export default function App() {
   });
 
   if (!fontsLoaded) return <AppLoading />;
-  return <Routes />;
+  return (
+    <Provider {...{ store }}>
+      <Routes />
+    </Provider>
+  );
 }
-
-/*Para fazer a navegação precisamos do react-navigation 
-
-yarn add @react-navigation/native
-
-expo install react-native-gesture-handler react-native-reanimated
- react-native-screens react-native-safe-area-context 
- @react-native-community/masked-view
-//json-server ./src/services/server.json --host 192.168.0.10 --port 3333 --delay 700
- yarn add @react-navigation/stack
-*/

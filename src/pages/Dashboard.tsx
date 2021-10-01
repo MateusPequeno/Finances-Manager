@@ -1,12 +1,17 @@
-import AsyncStorage from "@react-native-async-storage/async-storage";
 import { useNavigation } from "@react-navigation/core";
-import React, { useEffect, useState } from "react";
-import { Text, Image, View, Button } from "react-native";
-import UserImg from "../../assets/UserAvatar.png";
+import React from "react";
+import { Text, View } from "react-native";
+
 import { SimpleLineIcons, AntDesign } from "@expo/vector-icons";
 import { ScrollView } from "react-native-gesture-handler";
 import styles from "../styles/cssconfig";
+import { useSelector, useDispatch } from "react-redux";
+
+import { Button } from "../components/Button";
+import { Heading } from "../components/Heading";
+
 export function Dashboard() {
+  const dispatch = useDispatch();
   //ARMAZENAR ESTADO
   const navigation = useNavigation();
   function handleBalancePress() {
@@ -18,41 +23,41 @@ export function Dashboard() {
   function handleOutcomesIconPress() {
     navigation.navigate("OutcomesInsert");
   }
-  const [userName, setUserName] = useState<string>();
-  const [userBalance, setUserBalance] = useState<string>();
-
-  useEffect(() => {
-    async function loadStorageUserName() {
-      const user = await AsyncStorage.getItem("@pcc-app:user");
-      setUserName(user || "");
-    }
-    loadStorageUserName();
-  }, [userName]);
+  //const [userBalance, setUserBalance] = useState<string>();
+  /*
   useEffect(() => {
     async function loadStorageUserBalance() {
       const balance = await AsyncStorage.getItem("@pcc-app:balance");
       setUserBalance(balance || "");
     }
     loadStorageUserBalance();
-  }, []);
+  }, [userBalance]);*/
+  const dispatchDashboard = useDispatch();
+  const { transactions } = useSelector((state) => state.trs);
+  const prices = transactions.map((transaction: any) => transaction.price);
+  const balance = prices.reduce(
+    (prev: number, cur: number) => (prev += cur),
+    0
+  );
+  const expense =
+    prices
+      .filter((price: number) => price < 0)
+      .reduce((prev: number, cur: number) => (prev += cur), 0) * -1;
+
+  const income = expense + balance;
 
   return (
     <>
       <ScrollView>
-        <View style={styles.containerDashboard}>
-          <View>
-            <Text style={styles.greeting}>Olá</Text>
-            <Text style={styles.userName}>{userName}</Text>
-          </View>
-          <Image source={UserImg} style={styles.imageProf} />
-        </View>
+        <Heading />
         <View style={styles.card}>
           <Text style={styles.saldoGeral} onPress={handleBalancePress}>
             Saldo Geral:
           </Text>
           <Text onPress={handleBalancePress} style={styles.saldoGeral}>
-            R$ :{userBalance}
+            R$ :{balance}
           </Text>
+
           <AntDesign name="eye" size={20} color="grey" />
           <View style={styles.incomesAndDebt}>
             <SimpleLineIcons
@@ -63,7 +68,7 @@ export function Dashboard() {
             />
             <View style={styles.textosIncAndDebt}>
               <Text style={styles.despesa}> Despesas </Text>
-              <Text style={styles.despesaValor}> R$ : 4500.00 </Text>
+              <Text style={styles.despesaValor}> R$ : {expense} </Text>
             </View>
             <SimpleLineIcons
               name="arrow-up-circle"
@@ -73,7 +78,7 @@ export function Dashboard() {
             />
             <View style={styles.textosIncAndDebt}>
               <Text style={styles.rendimento}> Rendimentos </Text>
-              <Text style={styles.rendimentoValor}> R$ : 6000.00 </Text>
+              <Text style={styles.rendimentoValor}> R$ :{income}</Text>
             </View>
           </View>
         </View>

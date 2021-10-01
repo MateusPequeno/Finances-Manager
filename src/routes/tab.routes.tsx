@@ -3,7 +3,7 @@ import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { MaterialIcons } from "@expo/vector-icons";
 import { Platform } from "react-native";
 import { Dashboard } from "../pages/Dashboard";
-import { Welcome } from "../pages/Welcome";
+import { Transactions } from "../pages/Transactions";
 import { IncomesInsert } from "../pages/IncomesInsert";
 import { OutcomesInsert } from "../pages/OutcomesInsert";
 
@@ -17,6 +17,7 @@ const AuthRoutes = () => {
         inactiveTintColor: "#a5a5a5",
         labelPosition: "beside-icon",
         headerShown: false,
+
         style: {
           paddingVertical: Platform.OS == "ios" ? 20 : 0,
           height: 88,
@@ -33,8 +34,8 @@ const AuthRoutes = () => {
         }}
       />
       <AppTab.Screen
-        name="Welcome"
-        component={Welcome}
+        name="Transactions"
+        component={Transactions}
         options={{
           tabBarIcon: ({ size, color }) => (
             <MaterialIcons
