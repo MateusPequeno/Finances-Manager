@@ -203,19 +203,21 @@ export default StyleSheet.create({
   box: {
     backgroundColor: "#fff",
     borderBottomWidth: 1,
-    height: 40,
+    height: 50,
     borderRadius: 80,
     position: "relative",
     width: Dimensions.get("window").width * 0.9,
     flexDirection: "row",
+    overflow: "hidden",
+    paddingHorizontal: 24,
+    borderBottomColor: "#776c6c",
   },
   animView: {
     justifyContent: "space-between",
     flexDirection: "row",
     alignItems: "center",
-    height: 20,
+    height: 50,
     padding: 24,
-    flex: 1,
   },
   animView2: {
     fontSize: 12,
@@ -231,14 +233,19 @@ export default StyleSheet.create({
     backgroundColor: "white",
   },
   topText: {
-    fontSize: 12,
+    fontSize: 15,
     textAlign: "center",
     color: "white",
-    paddingHorizontal: 10,
+    fontWeight: "bold",
     fontFamily: fonts.text,
   },
   containerTop: {
     alignItems: "center",
     justifyContent: "center",
+  },
+  topRow: {
+    marginTop: 10,
+    flexDirection: "row",
+    paddingHorizontal: 10,
   },
 });

@@ -20,11 +20,12 @@ import theme, { Box } from "../components/theme";
 import fonts from "../styles/fonts";
 import Expense from "../components/Expense";
 import { useValue } from "react-native-reanimated";
-
 import {
   deleteTransaction,
   addTransaction,
 } from "../store/actions/transactionActions";
+import moment from "moment";
+import { MaterialCommunityIcons } from "@expo/vector-icons";
 
 export function Transactions() {
   const dispatch = useDispatch();
@@ -52,103 +53,145 @@ export function Transactions() {
   const onDelete = (id: any) => {
     dispatch(deleteTransaction(id));
   };
-  const renderHeader = () => {
-    return <Box style={styles.boxHeading}></Box>;
+
+  const renderHeader = ({ section: { data } }) => {
+    return (
+      <Box style={styles.box}>
+        <Text>{moment(data[0].addedtime, "x").format("DD MMM YYYY")}</Text>
+      </Box>
+    );
   };
+
   const renderFooter = () => {
-    return <Box style={styles.boxFooter}></Box>;
+    return <Box style={styles.boxDois}></Box>;
   };
 
   return (
-    <>
-      <ImageBackground
-        source={bckImage}
-        resizeMode="cover"
-        style={styles.bckImage}
-      >
-        <Heading />
-
-        <Top />
-        <Box
-          style={{
-            paddingHorizontal: 24,
-            paddingVertical: 16,
-            height: Dimensions.get("window").width * 0.8,
-          }}
-        >
-          <SectionList
-            sections={DATA}
-            alignItems="center"
-            justifyContent="center"
-            bounces={false}
-            showsVerticalScrollIndicator={false}
-            keyExtractor={(item, index) => item + index}
-            renderSectionFooter={renderFooter}
-            renderSectionHeader={renderHeader}
-            renderItem={({ item }) => {
-              const index = item.id;
-              return (
-                <Box key={index} overflow="hidden" style={styles.box}>
-                  <Animated.View style={styles.animatedView}>
+    <ImageBackground
+      source={bckImage}
+      resizeMode="cover"
+      style={styles.bckImage}
+    >
+      <Heading />
+      <Top />
+      <Box style={styles.boxTres}>
+        <SectionList
+          showsVerticalScrollIndicator={false}
+          scrollEventThrottle={16}
+          bounces={false}
+          keyExtractor={(item, index) => item + index}
+          renderItem={({ item }) => {
+            const index = item.id;
+            return (
+              <Animated.View
+                style={{ borderRadius: 20, backgroundColor: "red" }}
+              >
+                <Box style={styles.boxQuatro}>
+                  <Animated.View style={styles.animatedView}></Animated.View>
+                  <Animated.View style={{ backgroundColor: "white" }}>
                     <Expense
                       onTap={() => {
                         active.setValue(index);
                       }}
                       {...{ index, onDelete, item, allDates }}
-                    ></Expense>
+                    >
+                      <Box style={styles.boxCinco}>
+                        <View style={[StyleSheet.absoluteFill, {}]}>
+                          <Animated.View
+                            style={{
+                              justifyContent: "space-between",
+                              flexDirection: "row",
+                              alignItems: "center",
+                              height: 50,
+                              paddingHorizontal: 8,
+                            }}
+                          ></Animated.View>
+                        </View>
+                      </Box>
+                    </Expense>
                   </Animated.View>
                 </Box>
-              );
-            }}
-          />
-        </Box>
-      </ImageBackground>
-    </>
+              </Animated.View>
+            );
+          }}
+          renderSectionHeader={renderHeader}
+          renderSectionFooter={renderFooter}
+          sections={DATA}
+        />
+      </Box>
+    </ImageBackground>
   );
 }
 
 const styles = StyleSheet.create({
   bckImage: {
     flex: 1,
+
+    alignItems: "center",
+    justifyContent: "flex-end",
+    position: "relative",
   },
   box: {
-    backgroundColor: "#fff",
-    borderBottomWidth: 1,
-    height: 40,
-    borderRadius: 80,
-    position: "relative",
-    width: Dimensions.get("window").width * 0.9,
+    paddingHorizontal: 10,
+    backgroundColor: "white",
     flexDirection: "row",
+    justifyContent: "space-between",
+    borderBottomWidth: 1,
+    borderBottomColor: "#575151",
+    paddingBottom: 8,
+    paddingTop: 8,
+    marginTop: 10,
+    borderTopRightRadius: 10,
+    borderTopLeftRadius: 10,
+  },
+  boxDois: {
+    paddingHorizontal: 10,
+    backgroundColor: "white",
+    flexDirection: "row",
+    justifyContent: "space-between",
+    borderBottomWidth: 1,
+    borderBottomColor: "#575151",
+    paddingBottom: 8,
+    borderBottomRightRadius: 10,
+    borderBottomLeftRadius: 10,
+  },
+  boxTres: {
+    flex: 1,
+    paddingLeft: 24,
+    paddingRight: 24,
+    paddingBottom: 10,
+    paddingTop: 10,
+  },
+  boxQuatro: {
+    overflow: "hidden",
+    borderBottomWidth: 1,
+    borderBottomColor: "#575151",
+    height: 50,
+    position: "relative",
+    backgroundColor: "#fff",
+  },
+
+  boxCinco: {
+    overflow: "hidden",
+    paddingHorizontal: 10,
+    borderBottomWidth: 1,
+    borderBottomColor: "silver",
+    height: 50,
+    position: "relative",
+    backgroundColor: "white",
   },
   animatedView: {
     fontSize: 12,
-    textAlign: "center",
     color: "white",
-    padding: 5,
     fontFamily: fonts.text,
-  },
-  boxHeading: {
-    paddingHorizontal: 16,
-    backgroundColor: "#fff",
+    fontWeight: "900",
+    position: "absolute",
+    height: 50,
+    width: "14%",
+    right: -20,
+    alignItems: "center",
     flexDirection: "row",
-    justifyContent: "space-between",
-    borderBottomWidth: 1,
-    borderBottomColor: "#575757",
-    paddingBottom: 8,
-    paddingTop: 8,
-    marginTop: 16,
-    borderTopRightRadius: 16,
-    borderTopLeftRadius: 16,
-  },
-  boxFooter: {
-    paddingHorizontal: 16,
-    backgroundColor: "#fff",
-    flexDirection: "row",
-    justifyContent: "space-between",
-    borderBottomWidth: 1,
-    borderBottomColor: "silver",
-    paddingBottom: 8,
-    borderBottomRightRadius: 8,
-    borderBottomLeftRadius: 16,
+    justifyContent: "center",
+    backgroundColor: "white",
   },
 });

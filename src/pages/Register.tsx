@@ -41,15 +41,27 @@ export function Register() {
     //Caso tenha conteúdo será verdadeiro, se não tiver falso.
     setBalance(value);
   }
+  /*<Text style={styles.title}>Qual o seu Saldo total atual?</Text>
+                <TextInput
+                  style={[
+                    styles.input,
+                    (isFocused || isFilled) && { borderColor: "#FFC062" },
+                  ]}
+                  placeholder="10000.00"
+                  placeholderTextColor="grey"
+                  onBlur={handleInputBlur}
+                  onFocus={handleInputFocus}
+                  onChangeText={handleInputChangeBalance}
+                />*/
   async function handleSubmit() {
     if (!name) return Alert.alert("Me diga seu nome antes de continuarmos 😂");
-    if (!balance)
-      return Alert.alert("Me diga seu saldo mesmo que seja 0 ou negativo 😂");
+    //if (!balance)
+    //return Alert.alert("Me diga seu saldo mesmo que seja 0 ou negativo 😂");
     //chave da informação , segundo elemento é o valor
     //Async pois não é imediato e await para aguardar
     try {
       await AsyncStorage.setItem("@pcc-app:user", name);
-      await AsyncStorage.setItem("@pcc-app:balance", JSON.stringify(balance));
+      //  await AsyncStorage.setItem("@pcc-app:balance", JSON.stringify(balance));
       //Definindo a chave para salver o usuário assim como seu nome
       navigation.navigate("Dashboard", {
         title: "Pronto",
@@ -84,18 +96,6 @@ export function Register() {
                   onBlur={handleInputBlur}
                   onFocus={handleInputFocus}
                   onChangeText={handleInputChange}
-                />
-                <Text style={styles.title}>Qual o seu Saldo total atual?</Text>
-                <TextInput
-                  style={[
-                    styles.input,
-                    (isFocused || isFilled) && { borderColor: "#FFC062" },
-                  ]}
-                  placeholder="10000.00"
-                  placeholderTextColor="grey"
-                  onBlur={handleInputBlur}
-                  onFocus={handleInputFocus}
-                  onChangeText={handleInputChangeBalance}
                 />
                 <View style={styles.footer}>
                   <Button title="Continuar" onPress={handleSubmit} />
