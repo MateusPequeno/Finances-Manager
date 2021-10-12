@@ -124,7 +124,6 @@ export default StyleSheet.create({
     fontSize: 25,
     fontFamily: fonts.text,
   },
-
   incomesAndDebt: {
     marginTop: 6,
     flexDirection: "row",
@@ -133,6 +132,12 @@ export default StyleSheet.create({
     fontSize: 19,
     fontFamily: fonts.montText,
     color: "red",
+    fontWeight: "bold",
+  },
+  saldoLista: {
+    fontSize: 19,
+    fontFamily: fonts.montText,
+    color: "black",
     fontWeight: "bold",
   },
   despesaValor: {
@@ -176,10 +181,14 @@ export default StyleSheet.create({
     color: "#ffffff",
     fontFamily: fonts.text,
   },
-
   rowConfig: {
     marginTop: 10,
     flexDirection: "row",
+    justifyContent: "space-between",
+  },
+  columnConfig: {
+    flexDirection: "column",
+    paddingHorizontal: 10,
   },
   checkBox: {
     height: 50,
@@ -204,7 +213,7 @@ export default StyleSheet.create({
     backgroundColor: "#fff",
     borderBottomWidth: 1,
     height: 50,
-    borderRadius: 80,
+    //borderRadius: 80,
     position: "relative",
     width: Dimensions.get("window").width * 0.9,
     flexDirection: "row",
@@ -212,12 +221,36 @@ export default StyleSheet.create({
     paddingHorizontal: 24,
     borderBottomColor: "#776c6c",
   },
+  boxHeader: {
+    paddingHorizontal: 25,
+    backgroundColor: "#fff",
+    // flexDirection: "row",
+    justifyContent: "space-between",
+    //borderBottomWidth: 1,
+    //borderBottomColor: "#ff0000",
+    padding: 8,
+    marginTop: 10,
+    borderRadius: 10,
+  },
+  buttonRemove: {
+    width: 50,
+    height: 30,
+    backgroundColor: "#E83F5B",
+    marginTop: 15,
+    borderRadius: 5,
+    justifyContent: "center",
+    position: "relative",
+    alignItems: "center",
+    right: 3,
+    paddingLeft: 20,
+  },
   animView: {
     justifyContent: "space-between",
     flexDirection: "row",
     alignItems: "center",
     height: 50,
     padding: 24,
+    marginBottom: 30,
   },
   animView2: {
     fontSize: 12,
@@ -235,7 +268,7 @@ export default StyleSheet.create({
   topText: {
     fontSize: 15,
     textAlign: "center",
-    color: "white",
+    color: "black",
     fontWeight: "bold",
     fontFamily: fonts.text,
   },

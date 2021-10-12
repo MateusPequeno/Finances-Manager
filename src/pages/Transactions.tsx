@@ -11,7 +11,7 @@ import {
   Animated,
 } from "react-native";
 import { useNavigation } from "@react-navigation/core";
-import { Button } from "../../src/components/Button";
+import { Button } from "../components/Button";
 import { ScrollView, TouchableOpacity } from "react-native-gesture-handler";
 import { Top } from "../components/Top";
 import { Heading } from "../components/Heading";
@@ -30,8 +30,9 @@ import { MaterialCommunityIcons } from "@expo/vector-icons";
 export function Transactions() {
   const dispatch = useDispatch();
   const { transactions } = useSelector((state) => state.trs);
+
   const DATA = Object.values(
-    transactions.reduce((acc, item) => {
+    transactions.reduce((acc: any, item: any) => {
       if (!acc[item.addtime])
         acc[item.addtime] = {
           title: item.addtime,
@@ -42,22 +43,35 @@ export function Transactions() {
       return acc;
     }, {})
   );
+
   const allDates = transactions
     .map(({ addedtime }) => addedtime)
-    .filter(function (value, index, array) {
+    .filter(function (value: any, index: any, array: string | any[]) {
       return array.indexOf(value) == index;
     });
-  // Animation Values
+
   const active = useValue(0);
 
-  const onDelete = (id: any) => {
+  const Prices = ({ time }) => {
+    const prices = transactions
+      .filter(({ addedtime }) => addedtime == time)
+      .map(({ price }) => {
+        return price;
+      });
+    const sum = eval(prices.join("+"));
+
+    return <Text>{sum > 0 ? `$${sum}` : `- $${Math.abs(sum)}`}</Text>;
+  };
+
+  const onDelete = (id: Number) => {
     dispatch(deleteTransaction(id));
   };
 
   const renderHeader = ({ section: { data } }) => {
     return (
-      <Box style={styles.box}>
+      <Box style={styles.boxHeader}>
         <Text>{moment(data[0].addedtime, "x").format("DD MMM YYYY")}</Text>
+        <Prices time={data[0].addedtime} />
       </Box>
     );
   };
@@ -114,8 +128,8 @@ export function Transactions() {
               </Animated.View>
             );
           }}
-          renderSectionHeader={renderHeader}
           renderSectionFooter={renderFooter}
+          renderSectionHeader={renderHeader}
           sections={DATA}
         />
       </Box>
@@ -126,12 +140,11 @@ export function Transactions() {
 const styles = StyleSheet.create({
   bckImage: {
     flex: 1,
-
     alignItems: "center",
     justifyContent: "flex-end",
     position: "relative",
   },
-  box: {
+  boxHeader: {
     paddingHorizontal: 10,
     backgroundColor: "white",
     flexDirection: "row",
@@ -161,6 +174,7 @@ const styles = StyleSheet.create({
     paddingRight: 24,
     paddingBottom: 10,
     paddingTop: 10,
+    marginBottom: 10,
   },
   boxQuatro: {
     overflow: "hidden",

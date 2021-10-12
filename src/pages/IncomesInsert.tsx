@@ -114,21 +114,7 @@ export function IncomesInsert() {
                     onChange={onChange}
                   />
                 )}
-                <Text style={styles.subTitle}>Categorias:</Text>
-                <View style={styles.extraPicker}>
-                  <Picker
-                    style={styles.picker}
-                    selectedValue={selectedCategory}
-                    onValueChange={(itemValue, itemIndex) =>
-                      setselectedCategory(itemValue)
-                    }
-                  >
-                    <Picker.Item label="Salário" value="salario" />
-                    <Picker.Item label="Emprestimos" value="emprestimos" />
-                    <Picker.Item label="Investimentos" value="investimentos" />
-                    <Picker.Item label="Outros" value="outros" />
-                  </Picker>
-                </View>
+
                 <Text style={styles.subTitle}>Repetir:</Text>
                 <View style={styles.rowConfig}>
                   <CheckBox

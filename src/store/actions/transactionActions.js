@@ -1,18 +1,20 @@
 import moment from "moment";
 import { ADD_TRANSACTION, DELETE_TRANSACTION } from "./types";
 
-export const addTransaction = ({ title, price, addedtime }) => (dispatch) => {
-  const id = Math.floor(Math.random() * 600000);
- 
-  const newTransaction = {
-    id,
-    title,
-    price: +price,
-    addedtime: mainTime(),
-  };
+export const addTransaction =
+  ({ title, price, addedtime }) =>
+  (dispatch) => {
+    const id = Math.floor(Math.random() * 600000);
 
-  dispatch({ type: ADD_TRANSACTION, payload: newTransaction });
-};
+    const newTransaction = {
+      id,
+      title,
+      price: +price,
+      addedtime: mainTime(),
+    };
+
+    dispatch({ type: ADD_TRANSACTION, payload: newTransaction });
+  };
 
 export const deleteTransaction = (id) => (dispatch, getState) => {
   dispatch({ type: DELETE_TRANSACTION, payload: id });

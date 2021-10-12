@@ -1,12 +1,9 @@
 import React from "react";
 import { View, Text } from "react-native";
-import AsyncStorage from "@react-native-async-storage/async-storage";
-import { Button } from "../components/Button";
-import bckImage from "../../assets/blueBck.jpg";
 import styles from "../styles/cssconfig";
-import { ScrollView } from "react-native-gesture-handler";
 import { useDispatch, useSelector } from "react-redux";
-import { Box } from "@shopify/restyle";
+import theme, { Box } from "../components/theme";
+import moment from "moment";
 
 export function Top() {
   const dispatch = useDispatch();
@@ -25,15 +22,23 @@ export function Top() {
 
   return (
     <View style={styles.containerTop}>
-      <Text style={styles.topText}>Novembro</Text>
-      <View style={styles.rowConfig}>
-        <Text style={styles.topText}> Rendimentos</Text>
-        <Text style={styles.topText}> $: {income}</Text>
-        <Text style={styles.topText}> Despesas</Text>
-        <Text style={styles.topText}> $: -{expense}</Text>
-        <Text style={styles.topText}> Saldo</Text>
-        <Text style={styles.topText}> $: {balance}</Text>
-      </View>
+      <Box style={styles.boxHeader}>
+        <Text style={styles.topText}>{moment().format("LL")}</Text>
+        <View style={styles.rowConfig}>
+          <View style={styles.columnConfig}>
+            <Text style={styles.topText}> Rendimentos</Text>
+            <Text style={styles.rendimento}> $: {income}</Text>
+          </View>
+          <View style={styles.columnConfig}>
+            <Text style={styles.topText}> Despesas</Text>
+            <Text style={styles.despesa}> $: -{expense}</Text>
+          </View>
+          <View style={styles.columnConfig}>
+            <Text style={styles.topText}> Saldo</Text>
+            <Text style={styles.saldoLista}> $: {balance}</Text>
+          </View>
+        </View>
+      </Box>
     </View>
   );
 }
