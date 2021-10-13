@@ -3,15 +3,30 @@ import {
   Swipeable,
   TouchableWithoutFeedback,
 } from "react-native-gesture-handler";
-import Animated, { eq } from "react-native-reanimated";
-import React, { useState } from "react";
-import { Text, View, StyleSheet } from "react-native";
+import Animated from "react-native-reanimated";
+import React from "react";
+import { View } from "react-native";
 import theme, { Box } from "../components/theme";
 import styles from "../styles/cssconfig";
-import { TouchableOpacity } from "react-native";
-import { Feather, MaterialCommunityIcons } from "@expo/vector-icons";
+import { Feather } from "@expo/vector-icons";
 
-const Expense = ({ onTap, index, onDelete, item }) => {
+interface ExpenseProps {
+  onTap: any;
+  index: number;
+  onDelete: any;
+  item: {
+    addedTime: Date;
+    id: number;
+    title: string;
+    price: number;
+  };
+}
+export default function Expense({
+  onTap,
+  index,
+  onDelete,
+  item,
+}: ExpenseProps) {
   return (
     <TouchableWithoutFeedback
       onPress={() => {
@@ -19,7 +34,7 @@ const Expense = ({ onTap, index, onDelete, item }) => {
       }}
     >
       <Swipeable
-        //overshootRight = {false}
+        overshootRight={false}
         renderRightActions={() => (
           <Animated.View>
             <View>
@@ -53,17 +68,4 @@ const Expense = ({ onTap, index, onDelete, item }) => {
       </Swipeable>
     </TouchableWithoutFeedback>
   );
-};
-/*
-<Text>
-<TouchableOpacity
-  onPress={() => {
-    onDelete(index);
-  }}
->
-  <MaterialCommunityIcons name="delete" size={35} color={"red"} />
-</TouchableOpacity>
-</Text>
-*/
-
-export default Expense;
+}

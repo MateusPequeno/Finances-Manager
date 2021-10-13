@@ -19,7 +19,6 @@ const AppRoutes: React.FC = () => (
     screenOptions={{
       headerShown: false,
     }}
-    // Tirar o Header de navegação .
   >
     <stackRoutes.Screen name="Welcome" component={Welcome} />
     <stackRoutes.Screen name="Objectives" component={Objectives} />
@@ -35,13 +34,3 @@ const AppRoutes: React.FC = () => (
   </stackRoutes.Navigator>
 );
 export default AppRoutes;
-/*Para fazer a navegação precisamos do react-navigation 
-
-yarn add @react-navigation/native
-
-expo install react-native-gesture-handler react-native-reanimated
- react-native-screens react-native-safe-area-context 
- @react-native-community/masked-view
-
- yarn add @react-navigation/stack
-*/

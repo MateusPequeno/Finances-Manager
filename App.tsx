@@ -1,6 +1,5 @@
 import React from "react";
 import Routes from "./src/routes";
-//Importando fonte do google, roboto.
 import {
   Roboto_400Regular,
   Roboto_300Light,

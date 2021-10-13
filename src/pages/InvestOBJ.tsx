@@ -14,32 +14,30 @@ export function InvestOBJ() {
     navigation.navigate("Register");
   }
   return (
-    <>
-      <ImageBackground source={bckImage} style={styles.bckImage}>
-        <ScrollView>
-          <SafeAreaView style={styles.container}>
-            <View>
-              <Text style={styles.headerText}>Começar a investir</Text>
-              <StatusBar style="auto" />
-            </View>
-            <View>
-              <Text style={styles.descriptionTextOBJ}>
-                Uma máxima no mundo dos investimenos é a diversificação, porém
-                isso pode deixar as coisas confusas, diversas corretoras com
-                diferentes tipos de investimento, para ajudar em sua
-                organização, vamos juntar todos em nosso aplicativo, facilitando
-                sua organização.
-              </Text>
-            </View>
-            <Image
-              source={investingImg}
-              style={styles.image}
-              resizeMode="contain"
-            />
-            <Button title={"Vamos la!"} onPress={handlePress} />
-          </SafeAreaView>
-        </ScrollView>
-      </ImageBackground>
-    </>
+    <ImageBackground source={bckImage} style={styles.bckImage}>
+      <ScrollView>
+        <SafeAreaView style={styles.container}>
+          <View>
+            <Text style={styles.headerText}>Começar a investir</Text>
+            <StatusBar style="auto" />
+          </View>
+          <View>
+            <Text style={styles.descriptionTextOBJ}>
+              Uma máxima no mundo dos investimenos é a diversificação, porém
+              isso pode deixar as coisas confusas, diversas corretoras com
+              diferentes tipos de investimento, para ajudar em sua organização,
+              vamos juntar todos em nosso aplicativo, facilitando sua
+              organização.
+            </Text>
+          </View>
+          <Image
+            source={investingImg}
+            style={styles.image}
+            resizeMode="contain"
+          />
+          <Button title={"Vamos la!"} onPress={handlePress} />
+        </SafeAreaView>
+      </ScrollView>
+    </ImageBackground>
   );
 }

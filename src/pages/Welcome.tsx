@@ -13,30 +13,24 @@ export function Welcome() {
     navigation.navigate("Objectives");
   }
   return (
-    <>
-      <ImageBackground
-        source={bckPng}
-        resizeMode="cover"
-        style={styles.bckImage}
-      >
-        <SafeAreaView style={styles.container}>
-          <View>
-            <Text style={styles.headerText}>Bem vindo!</Text>
-            <StatusBar style="auto" />
-          </View>
-          <View></View>
-          <View>
-            <Text style={styles.descriptionTextMain}>
-              Vamos te ajudar a alcançar a independência financeira, organizando
-              suas finanças
-              {"\n"}😊
-            </Text>
-          </View>
-          <TouchableOpacity>
-            <Button title={"Continuar"} onPress={handleStart} />
-          </TouchableOpacity>
-        </SafeAreaView>
-      </ImageBackground>
-    </>
+    <ImageBackground source={bckPng} resizeMode="cover" style={styles.bckImage}>
+      <SafeAreaView style={styles.container}>
+        <View>
+          <Text style={styles.headerText}>Bem vindo!</Text>
+          <StatusBar style="auto" />
+        </View>
+        <View></View>
+        <View>
+          <Text style={styles.descriptionTextMain}>
+            Vamos te ajudar a alcançar a independência financeira, organizando
+            suas finanças
+            {"\n"}😊
+          </Text>
+        </View>
+        <TouchableOpacity>
+          <Button title={"Continuar"} onPress={handleStart} />
+        </TouchableOpacity>
+      </SafeAreaView>
+    </ImageBackground>
   );
 }

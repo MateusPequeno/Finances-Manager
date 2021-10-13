@@ -13,28 +13,22 @@ export function OrgOBJ() {
     navigation.navigate("Register");
   }
   return (
-    <>
-      <ImageBackground source={bckImage} style={styles.bckImage}>
-        <SafeAreaView style={styles.container}>
-          <View>
-            <Text style={styles.headerText}>Organizar finanças</Text>
-            <StatusBar style="auto" />
-          </View>
-          <View>
-            <Text style={styles.descriptionTextOBJ}>
-              Para ter maior organização, vamos te mostrar gráficos de suas
-              despesas, rendimentos, desenvolvimento e relação entre
-              rendimentos-despesas.
-            </Text>
-          </View>
-          <Image
-            source={organizeImg}
-            style={styles.image}
-            resizeMode="contain"
-          />
-          <Button title={"Vamos la!"} onPress={handlePress} />
-        </SafeAreaView>
-      </ImageBackground>
-    </>
+    <ImageBackground source={bckImage} style={styles.bckImage}>
+      <SafeAreaView style={styles.container}>
+        <View>
+          <Text style={styles.headerText}>Organizar finanças</Text>
+          <StatusBar style="auto" />
+        </View>
+        <View>
+          <Text style={styles.descriptionTextOBJ}>
+            Para ter maior organização, vamos te mostrar gráficos de suas
+            despesas, rendimentos, desenvolvimento e relação entre
+            rendimentos-despesas.
+          </Text>
+        </View>
+        <Image source={organizeImg} style={styles.image} resizeMode="contain" />
+        <Button title={"Vamos la!"} onPress={handlePress} />
+      </SafeAreaView>
+    </ImageBackground>
   );
 }

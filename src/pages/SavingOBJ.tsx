@@ -12,28 +12,21 @@ export function SavingOBJ() {
     navigation.navigate("Register");
   }
   return (
-    <>
-      <ImageBackground source={bckImage} style={styles.bckImage}>
-        <SafeAreaView style={styles.container}>
-          <View>
-            <Text style={styles.headerText}>Começar a poupar</Text>
-            <StatusBar style="auto" />
-          </View>
-          <View>
-            <Text style={styles.descriptionTextOBJ}>
-              Com disciplina, consciência, comprometimento e atenção mais nosso
-              app você conseguira poupar dinheiro para conquistar seus
-              objetivos!
-            </Text>
-          </View>
-          <Image
-            source={savingImage}
-            style={styles.image}
-            resizeMode="contain"
-          />
-          <Button title={"Vamos la!"} onPress={handlePress} />
-        </SafeAreaView>
-      </ImageBackground>
-    </>
+    <ImageBackground source={bckImage} style={styles.bckImage}>
+      <SafeAreaView style={styles.container}>
+        <View>
+          <Text style={styles.headerText}>Começar a poupar</Text>
+          <StatusBar style="auto" />
+        </View>
+        <View>
+          <Text style={styles.descriptionTextOBJ}>
+            Com disciplina, consciência, comprometimento e atenção mais nosso
+            app você conseguira poupar dinheiro para conquistar seus objetivos!
+          </Text>
+        </View>
+        <Image source={savingImage} style={styles.image} resizeMode="contain" />
+        <Button title={"Vamos la!"} onPress={handlePress} />
+      </SafeAreaView>
+    </ImageBackground>
   );
 }

@@ -13,7 +13,6 @@ import {
 } from "react-native";
 import { useNavigation } from "@react-navigation/core";
 import { Button } from "../../src/components/Button";
-import { Picker } from "@react-native-picker/picker";
 import DateTimePicker from "@react-native-community/datetimepicker";
 import styles from "../styles/cssconfig";
 import bckImage from "../../assets/blueBck.jpg";

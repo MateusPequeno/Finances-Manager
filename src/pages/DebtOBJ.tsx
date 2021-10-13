@@ -12,27 +12,25 @@ export function DebtOBJ() {
     navigation.navigate("Register");
   }
   return (
-    <>
-      <ImageBackground
-        source={bckImage}
-        resizeMode="cover"
-        style={styles.bckImage}
-      >
-        <SafeAreaView style={styles.container}>
-          <View>
-            <Text style={styles.headerText}>Quitar minhas dividas</Text>
-            <StatusBar style="auto" />
-          </View>
-          <View>
-            <Text style={styles.descriptionTextOBJ}>
-              Sair do vermelho é uma tarefa que demanda comprometimento e
-              disciplina, mas não se preocupe, vamos te ajudar com isso.
-            </Text>
-          </View>
-          <Image source={debtImg} style={styles.image} resizeMode="contain" />
-          <Button title={"Vamos la!"} onPress={handlePress} />
-        </SafeAreaView>
-      </ImageBackground>
-    </>
+    <ImageBackground
+      source={bckImage}
+      resizeMode="cover"
+      style={styles.bckImage}
+    >
+      <SafeAreaView style={styles.container}>
+        <View>
+          <Text style={styles.headerText}>Quitar minhas dividas</Text>
+          <StatusBar style="auto" />
+        </View>
+        <View>
+          <Text style={styles.descriptionTextOBJ}>
+            Sair do vermelho é uma tarefa que demanda comprometimento e
+            disciplina, mas não se preocupe, vamos te ajudar com isso.
+          </Text>
+        </View>
+        <Image source={debtImg} style={styles.image} resizeMode="contain" />
+        <Button title={"Vamos la!"} onPress={handlePress} />
+      </SafeAreaView>
+    </ImageBackground>
   );
 }

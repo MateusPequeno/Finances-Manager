@@ -21,30 +21,27 @@ export function Objectives() {
     navigation.navigate("DebtOBJ");
   }
   return (
-    <>
-      <ImageBackground
-        source={bckImage}
-        resizeMode="cover"
-        style={styles.bckImage}
-      >
-        <SafeAreaView style={styles.container}>
-          <View>
-            <Text style={styles.headerText}>Qual o seu objetivo?</Text>
-            <StatusBar style="auto" />
-          </View>
-          <View>
-            <Text style={styles.descriptionTextOBJ}>
-              Cuidar das suas finanças fica mais fácil se soubermos seu
-              objetivo.
-            </Text>
-          </View>
+    <ImageBackground
+      source={bckImage}
+      resizeMode="cover"
+      style={styles.bckImage}
+    >
+      <SafeAreaView style={styles.container}>
+        <View>
+          <Text style={styles.headerText}>Qual o seu objetivo?</Text>
+          <StatusBar style="auto" />
+        </View>
+        <View>
+          <Text style={styles.descriptionTextOBJ}>
+            Cuidar das suas finanças fica mais fácil se soubermos seu objetivo.
+          </Text>
+        </View>
 
-          <Button title={"Quitar minhas dividas"} onPress={handleDebt} />
-          <Button title={"Começar a poupar"} onPress={handleSaving} />
-          <Button title={"Começar a investir"} onPress={handleInvest} />
-          <Button title={"Organizar finanças"} onPress={handleOrg} />
-        </SafeAreaView>
-      </ImageBackground>
-    </>
+        <Button title={"Quitar minhas dividas"} onPress={handleDebt} />
+        <Button title={"Começar a poupar"} onPress={handleSaving} />
+        <Button title={"Começar a investir"} onPress={handleInvest} />
+        <Button title={"Organizar finanças"} onPress={handleOrg} />
+      </SafeAreaView>
+    </ImageBackground>
   );
 }

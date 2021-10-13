@@ -13,6 +13,7 @@ export function Heading() {
     }
     loadStorageUserName();
   }, [userName]);
+
   return (
     <View style={styles.containerDashboard}>
       <View>

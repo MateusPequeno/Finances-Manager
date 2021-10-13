@@ -1,6 +1,6 @@
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import { useNavigation } from "@react-navigation/core";
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import {
   Text,
   View,
@@ -17,7 +17,6 @@ import styles from "../styles/cssconfig";
 import bckImage from "../../assets/blueBck.jpg";
 
 export function BalanceInsert() {
-  //Determinando o padrão de blur e preenchimento como falso.
   const [isFocused, setIsFocused] = useState(false);
   const [isFilled, setIsFilled] = useState(false);
   const [balance, setBalance] = useState<string>();
@@ -30,8 +29,7 @@ export function BalanceInsert() {
     setIsFocused(true);
   }
   function handleInputChange(value: string) {
-    setIsFilled(!!value); //value passa a ser um conteudo lógico, 1 verdadeiro 0 falso
-    //Caso tenha conteúdo será verdadeiro, se não tiver falso.
+    setIsFilled(!!value);
     setBalance(value);
   }
   async function handleSubmit() {
@@ -39,7 +37,6 @@ export function BalanceInsert() {
       if (!balance)
         return Alert.alert("Me diga seu saldo mesmo que seja 0 ou negativo 😂");
       await AsyncStorage.setItem("@pcc-app:balance", balance);
-      //Definindo a chave para salver o usuário assim como seu nome
       navigation.navigate("Dashboard", {
         title: "Prontinho",
         subtitle: "Teste Teste Teste",

@@ -17,10 +17,9 @@ import bckImage from "../../assets/blueBck.jpg";
 import styles from "../styles/cssconfig";
 
 export function Register() {
-  //Determinando o padrão de blur e preenchimento como falso.
   const [isFocused, setIsFocused] = useState(false);
   const [isFilled, setIsFilled] = useState(false);
-  const [name, setName] = useState<string>(); // para tipar o dado se coloca o string
+  const [name, setName] = useState<string>();
   const [balance, setBalance] = useState();
   const navigation = useNavigation();
 
@@ -32,13 +31,11 @@ export function Register() {
     setIsFocused(true);
   }
   function handleInputChange(value: string) {
-    setIsFilled(!!value); //value passa a ser um conteudo lógico, 1 verdadeiro 0 falso
-    //Caso tenha conteúdo será verdadeiro, se não tiver falso.
+    setIsFilled(!!value);
     setName(value);
   }
   function handleInputChangeBalance(value: React.SetStateAction<undefined>) {
-    setIsFilled(!!value); //value passa a ser um conteudo lógico, 1 verdadeiro 0 falso
-    //Caso tenha conteúdo será verdadeiro, se não tiver falso.
+    setIsFilled(!!value);
     setBalance(value);
   }
   /*<Text style={styles.title}>Qual o seu Saldo total atual?</Text>
@@ -55,14 +52,14 @@ export function Register() {
                 />*/
   async function handleSubmit() {
     if (!name) return Alert.alert("Me diga seu nome antes de continuarmos 😂");
-    //if (!balance)
-    //return Alert.alert("Me diga seu saldo mesmo que seja 0 ou negativo 😂");
-    //chave da informação , segundo elemento é o valor
-    //Async pois não é imediato e await para aguardar
+    /* (if (!balance)
+    return Alert.alert("Me diga seu saldo mesmo que seja 0 ou negativo 😂");
+  
+    */
     try {
       await AsyncStorage.setItem("@pcc-app:user", name);
       //  await AsyncStorage.setItem("@pcc-app:balance", JSON.stringify(balance));
-      //Definindo a chave para salver o usuário assim como seu nome
+
       navigation.navigate("Dashboard", {
         title: "Pronto",
         buttonTitle: "Começar",
@@ -89,7 +86,6 @@ export function Register() {
                   style={[
                     styles.input,
                     (isFocused || isFilled) && { borderColor: "#FFC062" },
-                    //&& seria o então
                   ]}
                   placeholder="Digite seu nome"
                   placeholderTextColor="grey"
