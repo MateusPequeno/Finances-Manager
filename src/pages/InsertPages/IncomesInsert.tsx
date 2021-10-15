@@ -12,11 +12,11 @@ import {
   ImageBackground,
 } from "react-native";
 import { useNavigation } from "@react-navigation/core";
-import { Button } from "../../src/components/Button";
+import { Button } from "../../../src/components/Button";
 import DateTimePicker from "@react-native-community/datetimepicker";
-import styles from "../styles/cssconfig";
-import bckImage from "../../assets/blueBck.jpg";
-import { addTransaction } from "../store/actions/transactionActions";
+import styles from "../../styles/cssconfig";
+import bckImage from "../../../assets/blueBck.jpg";
+import { addTransaction } from "../../store/actions/transactionActions";
 import { useDispatch } from "react-redux";
 
 export function IncomesInsert() {

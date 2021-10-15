@@ -4,8 +4,8 @@ import { MaterialIcons } from "@expo/vector-icons";
 import { Platform } from "react-native";
 import { Dashboard } from "../pages/Dashboard";
 import { Transactions } from "../pages/Transactions";
-import { IncomesInsert } from "../pages/IncomesInsert";
-import { OutcomesInsert } from "../pages/OutcomesInsert";
+import { IncomesInsert } from "../pages/InsertPages/IncomesInsert";
+import { OutcomesInsert } from "../pages/InsertPages/OutcomesInsert";
 
 const AppTab = createBottomTabNavigator();
 

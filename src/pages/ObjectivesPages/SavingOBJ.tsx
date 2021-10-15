@@ -1,11 +1,11 @@
 import { StatusBar } from "expo-status-bar";
 import React from "react";
-import savingImage from "../../assets/saving.png";
+import savingImage from "../../../assets/saving.png";
 import { SafeAreaView, Text, View, Image, ImageBackground } from "react-native";
-import { Button } from "../../src/components/Button";
-import bckImage from "../../assets/blueBck.jpg";
+import { Button } from "../../../src/components/Button";
+import bckImage from "../../../assets/blueBck.jpg";
 import { useNavigation } from "@react-navigation/native";
-import styles from "../styles/cssconfig";
+import styles from "../../styles/cssconfig";
 export function SavingOBJ() {
   const navigation = useNavigation();
   function handlePress() {
