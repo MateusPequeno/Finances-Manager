@@ -6,6 +6,8 @@ import { ScrollView } from "react-native-gesture-handler";
 import styles from "../styles/cssconfig";
 import { useSelector, useDispatch } from "react-redux";
 import { Heading } from "../components/Heading";
+import { CategoryGraph } from "../pages/Graphs/CategoryGraph";
+import { marginBottom } from "styled-system";
 
 export function Dashboard() {
   const dispatch = useDispatch();
@@ -45,6 +47,7 @@ export function Dashboard() {
   return (
     <ScrollView>
       <Heading />
+
       <View style={styles.card}>
         <Text style={styles.saldoGeral} onPress={handleBalancePress}>
           Saldo Geral:
@@ -77,7 +80,10 @@ export function Dashboard() {
           </View>
         </View>
       </View>
-      <Text style={styles.despesasCatego}>Despesas por categoria:</Text>
+      <View style={{ marginTop: 20, marginBottom: 20 }}>
+        <Text style={styles.despesasCatego}>Despesas por categoria:</Text>
+        <CategoryGraph />
+      </View>
       <Text style={styles.despesasCatego}>Metas/objetivos:</Text>
       <Text style={styles.despesasCatego}>Gráfico rendimento - despesas:</Text>
       <Text style={styles.despesasCatego}>Definir Limites de gastos:</Text>

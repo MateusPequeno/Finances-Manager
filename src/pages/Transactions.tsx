@@ -102,7 +102,6 @@ export function Transactions() {
                 style={{ borderRadius: 20, backgroundColor: "red" }}
               >
                 <Box style={styles.boxQuatro}>
-                  <Animated.View style={styles.animatedView}></Animated.View>
                   <Animated.View style={{ backgroundColor: "white" }}>
                     <Expense
                       onTap={() => {
