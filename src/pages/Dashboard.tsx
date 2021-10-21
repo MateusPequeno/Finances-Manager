@@ -46,7 +46,7 @@ export function Dashboard() {
   const income = expense + balance;
 
   return (
-    <ScrollView>
+    <ScrollView horizontal={false}>
       <Heading />
       <View style={styles.card}>
         <Text style={styles.saldoGeral} onPress={handleBalancePress}>
@@ -81,6 +81,7 @@ export function Dashboard() {
       </View>
       <View style={{ marginTop: 20, marginBottom: 20 }}>
         <Text style={styles.despesasCatego}>Despesas por categoria:</Text>
+        <CategoryGraph />
       </View>
       <Text style={styles.despesasCatego}>Metas/objetivos:</Text>
       <GoalsGraph />
@@ -92,6 +93,7 @@ export function Dashboard() {
       <Text style={styles.despesasCatego}>
         Gráfico de desempenho das despesas:
       </Text>
+      <Text style={styles.despesasCatego}>Dicas:</Text>
     </ScrollView>
   );
 }

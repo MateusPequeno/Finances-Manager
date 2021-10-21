@@ -63,7 +63,6 @@ export default function Expense({
               </Animated.Text>
             </Animated.View>
           </View>
-          <Animated.View style={styles.animView2}></Animated.View>
         </Box>
       </Swipeable>
     </TouchableWithoutFeedback>

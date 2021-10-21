@@ -1,4 +1,8 @@
-import { ADD_TRANSACTION, DELETE_TRANSACTION } from "../actions/types";
+import {
+  ADD_TRANSACTION,
+  DELETE_TRANSACTION,
+  ADD_GOAL,
+} from "../actions/types";
 
 const initialState = {
   transactions: [
@@ -11,6 +15,10 @@ const initialState = {
     { addedtime: 779879856000, id: 9, title: "Conta de água", price: -50 },
     { addedtime: 779879856000, id: 10, title: "Venda da Moto", price: 6000 },
     { addedtime: 1613682000000, id: 11, title: "Doação", price: -60 },
+  ],
+  goals: [
+    { id: 1, goalTitle: "Casa Própia ", goalPrice: 200000 },
+    { id: 2, goalTitle: "Carro Própio ", goalPrice: 60000 },
   ],
 };
 
@@ -25,6 +33,11 @@ export default (state = initialState, { type, payload }) => {
       return {
         ...state,
         transactions: state.transactions.filter(({ id }) => id !== payload),
+      };
+    case ADD_GOAL:
+      return {
+        ...state,
+        goals: [payload, ...state.goals],
       };
     default:
       return state;

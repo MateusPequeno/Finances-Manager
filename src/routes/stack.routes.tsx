@@ -9,6 +9,7 @@ import { DebtOBJ } from "../pages/ObjectivesPages/DebtOBJ";
 import { OutcomesInsert } from "../pages/InsertPages/OutcomesInsert";
 import { IncomesInsert } from "../pages/InsertPages/IncomesInsert";
 import { Register } from "../pages/Register";
+import { GoalsInsert } from "../pages/InsertPages/GoalsInsert";
 import AuthRoutes from "./tab.routes";
 import { BalanceInsert } from "../pages/BalanceInsert";
 
@@ -31,6 +32,7 @@ const AppRoutes: React.FC = () => (
     <stackRoutes.Screen name="Register" component={Register} />
     <stackRoutes.Screen name="Dashboard" component={AuthRoutes} />
     <stackRoutes.Screen name="BalanceInsert" component={BalanceInsert} />
+    <stackRoutes.Screen name="GoalsInsert" component={GoalsInsert} />
   </stackRoutes.Navigator>
 );
 export default AppRoutes;
