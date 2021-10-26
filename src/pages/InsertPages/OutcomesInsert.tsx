@@ -59,7 +59,10 @@ export function OutcomesInsert() {
   function handleSubmit() {
     navigation.navigate("Overview");
     const transaction = { price, title };
-    if (!price || !title) return alert("Insira os detalhes");
+    if (!price || !title || price > 0)
+      return alert(
+        "Insira os detalhes corretamente, para despesas o preço deve ser negativo. "
+      );
     dispatch(addTransaction(transaction));
     setPrice("");
     setTitle("");
@@ -90,7 +93,7 @@ export function OutcomesInsert() {
                     styles.input,
                     (isFocused || isFilled) && { borderColor: "#FFC062" }, //&& seria o então
                   ]}
-                  placeholder="R$ -00.00"
+                  placeholder="R$ - 00.00"
                   onBlur={handleInputBlur}
                   onFocus={handleInputFocus}
                   keyboardType="number-pad"

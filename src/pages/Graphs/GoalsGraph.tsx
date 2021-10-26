@@ -23,6 +23,7 @@ import {
 import styles from "../../styles/cssconfig";
 import moment from "moment";
 import { Colors, ProgressBar } from "react-native-paper";
+import { justifyContent } from "styled-system";
 
 export function GoalsGraph() {
   const navigation = useNavigation();
@@ -59,36 +60,42 @@ export function GoalsGraph() {
       renderItem={({ item }) => {
         const index = item.id;
         const progressGoal = balance / item.goalPrice;
-        const goalPercentage = progressGoal * 100;
+        var goalPercentage = progressGoal * 100;
+        if (goalPercentage >= 100) {
+          goalPercentage = 100;
+          var goalConcluded = "Parabéns, você bateu essa meta!";
+        }
         return (
-          <TouchableOpacity onPress={handleGoalsPress}>
-            <Text style={styles.despesasCatego}> {item.goalTitle} </Text>
-            <View style={{ alignItems: "center", justifyContent: "center" }}>
-              <ProgressBar
-                style={{ width: 325, marginBottom: 20 }}
-                progress={progressGoal}
-                color={Colors.red800}
-              />
-              <View
-                style={{
-                  borderBottomWidth: 1,
-                  height: 45,
-                  position: "relative",
-                  width: Dimensions.get("window").width * 0.65,
-                  flexDirection: "row",
-                  overflow: "hidden",
-                  paddingHorizontal: 24,
-                  borderBottomColor: "#e2cccc",
-                }}
-              >
-                <Text>
-                  R$ : {balance} / R$: {item.goalPrice}
-                </Text>
-                <Text style={{ marginLeft: 50 }}>
-                  {Math.round(goalPercentage)} %
-                </Text>
+          <TouchableOpacity onPress={handleGoalsPress} style={styles.container}>
+            <Box style={styles.boxGoals}>
+              <Text style={styles.goalTitleText}> {item.goalTitle} </Text>
+              <Text style={styles.goalAchieved}>{goalConcluded}</Text>
+              <View style={{ alignItems: "center", justifyContent: "center" }}>
+                <ProgressBar
+                  style={{ width: 325, marginBottom: 20 }}
+                  progress={progressGoal}
+                  color={Colors.red800}
+                />
+                <View
+                  style={{
+                    height: 45,
+                    position: "relative",
+                    width: Dimensions.get("window").width * 0.65,
+                    flexDirection: "row",
+                    overflow: "hidden",
+                    paddingHorizontal: 24,
+                  }}
+                >
+                  <Text>
+                    R$ : {Math.round(balance * 100) / 100}/ R$: {item.goalPrice}
+                  </Text>
+
+                  <Text style={{ marginLeft: 50 }}>
+                    {Math.round(goalPercentage)} %
+                  </Text>
+                </View>
               </View>
-            </View>
+            </Box>
           </TouchableOpacity>
         );
       }}

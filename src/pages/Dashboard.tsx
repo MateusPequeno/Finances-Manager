@@ -9,6 +9,7 @@ import { Heading } from "../components/Heading";
 import { CategoryGraph } from "../pages/Graphs/CategoryGraph";
 import { GoalsGraph } from "../pages/Graphs/GoalsGraph";
 import { marginBottom } from "styled-system";
+import { Box } from "../components/theme";
 
 export function Dashboard() {
   const dispatch = useDispatch();
@@ -46,39 +47,48 @@ export function Dashboard() {
   const income = expense + balance;
 
   return (
-    <ScrollView horizontal={false}>
+    <ScrollView>
       <Heading />
-      <View style={styles.card}>
-        <Text style={styles.saldoGeral} onPress={handleBalancePress}>
-          Saldo Geral:
-        </Text>
-        <Text onPress={handleBalancePress} style={styles.saldoGeral}>
-          R$ :{balance}
-        </Text>
-        <AntDesign name="eye" size={20} color="grey" />
-        <View style={styles.incomesAndDebt}>
-          <SimpleLineIcons
-            name="arrow-down-circle"
-            size={50}
-            color={"red"}
-            onPress={handleOutcomesIconPress}
-          />
-          <View style={styles.textosIncAndDebt}>
-            <Text style={styles.despesa}> Despesas </Text>
-            <Text style={styles.despesaValor}> R$ : {expense} </Text>
+      <View style={styles.container}>
+        <Box style={styles.boxSaldo}>
+          <View style={styles.card}>
+            <Text style={styles.saldoGeral} onPress={handleBalancePress}>
+              Saldo Geral:
+            </Text>
+            <Text onPress={handleBalancePress} style={styles.saldoGeral}>
+              R$ :{Math.round(balance * 100) / 100}
+            </Text>
+            <AntDesign name="eye" size={20} color="grey" />
+            <View style={styles.incomesAndDebt}>
+              <SimpleLineIcons
+                name="arrow-down-circle"
+                size={50}
+                color={"red"}
+                onPress={handleOutcomesIconPress}
+              />
+              <View style={styles.textosIncAndDebt}>
+                <Text style={styles.despesa}> Despesas </Text>
+                <Text style={styles.despesaValor}>
+                  R$ : {Math.round(expense * 100) / 100}
+                </Text>
+              </View>
+              <SimpleLineIcons
+                name="arrow-up-circle"
+                size={50}
+                color={"green"}
+                onPress={handleIncomesIconPress}
+              />
+              <View style={styles.textosIncAndDebt}>
+                <Text style={styles.rendimento}> Rendimentos </Text>
+                <Text style={styles.rendimentoValor}>
+                  R$ :{Math.round(income * 100) / 100}
+                </Text>
+              </View>
+            </View>
           </View>
-          <SimpleLineIcons
-            name="arrow-up-circle"
-            size={50}
-            color={"green"}
-            onPress={handleIncomesIconPress}
-          />
-          <View style={styles.textosIncAndDebt}>
-            <Text style={styles.rendimento}> Rendimentos </Text>
-            <Text style={styles.rendimentoValor}> R$ :{income}</Text>
-          </View>
-        </View>
+        </Box>
       </View>
+
       <View style={{ marginTop: 20, marginBottom: 20 }}>
         <Text style={styles.despesasCatego}>Despesas por categoria:</Text>
         <CategoryGraph />
@@ -93,7 +103,7 @@ export function Dashboard() {
       <Text style={styles.despesasCatego}>
         Gráfico de desempenho das despesas:
       </Text>
-      <Text style={styles.despesasCatego}>Dicas:</Text>
+      <Text style={styles.despesasCatego}>Dicas personalizadas:</Text>
     </ScrollView>
   );
 }

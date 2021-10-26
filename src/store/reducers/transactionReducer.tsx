@@ -19,6 +19,7 @@ const initialState = {
   goals: [
     { id: 1, goalTitle: "Casa Própia ", goalPrice: 200000 },
     { id: 2, goalTitle: "Carro Própio ", goalPrice: 60000 },
+    { id: 2, goalTitle: "Moto Honda", goalPrice: 8000 },
   ],
 };
 

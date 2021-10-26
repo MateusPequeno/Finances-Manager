@@ -6,6 +6,7 @@ export default StyleSheet.create({
     alignItems: "center",
     justifyContent: "center",
   },
+
   bckImageTransaction: {
     flex: 1,
     alignItems: "center",
@@ -189,6 +190,8 @@ export default StyleSheet.create({
     justifyContent: "space-between",
     alignItems: "center",
     paddingVertical: 20,
+    borderBottomLeftRadius: 25,
+    borderBottomRightRadius: 25,
     padding: 20,
     backgroundColor: "#443C8A",
   },
@@ -261,6 +264,15 @@ export default StyleSheet.create({
     fontWeight: "bold",
     padding: 28,
   },
+  goalTitleText: {
+    fontSize: 18,
+    fontFamily: fonts.text,
+    color: "#6d5151",
+    fontWeight: "bold",
+    marginBottom: 8,
+    marginLeft: 28,
+    marginTop: 5,
+  },
   dateButton: {
     backgroundColor: "#ffffff",
     height: 56,
@@ -313,6 +325,21 @@ export default StyleSheet.create({
     overflow: "hidden",
     paddingHorizontal: 24,
     borderBottomColor: "#776c6c",
+  },
+  boxGoals: {
+    backgroundColor: "#d5d5ec",
+    overflow: "hidden",
+    width: Dimensions.get("window").width * 0.95,
+    borderRadius: 30,
+    marginBottom: 10,
+  },
+  boxSaldo: {
+    backgroundColor: "#d5d5ec",
+    overflow: "hidden",
+    width: Dimensions.get("window").width * 0.95,
+    borderRadius: 30,
+    height: Dimensions.get("window").height * 0.21,
+    marginTop: 10,
   },
   boxHeader: {
     paddingHorizontal: 25,
@@ -373,5 +400,12 @@ export default StyleSheet.create({
     marginTop: 10,
     flexDirection: "row",
     paddingHorizontal: 10,
+  },
+  goalAchieved: {
+    fontSize: 16,
+    fontWeight: "900",
+    marginLeft: 33,
+    marginBottom: 5,
+    fontFamily: fonts.montText,
   },
 });

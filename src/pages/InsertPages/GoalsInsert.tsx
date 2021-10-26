@@ -53,7 +53,8 @@ export function GoalsInsert() {
   function handleSubmit() {
     navigation.navigate("Overview");
     const goals = { goalPrice, goalTitle };
-    if (!goalPrice || !goalTitle) return alert("Insira os detalhes");
+    if (!goalPrice || !goalTitle)
+      return alert("Insira os detalhes corretamente.");
     dispatch(addGoal(goals));
     setGoalPrice("");
     setGoalTitle("");

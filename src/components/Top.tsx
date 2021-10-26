@@ -27,15 +27,21 @@ export function Top() {
         <View style={styles.rowConfig}>
           <View style={styles.columnConfig}>
             <Text style={styles.topText}> Rendimentos</Text>
-            <Text style={styles.rendimento}> $: {income}</Text>
+            <Text style={styles.rendimento}>
+              $: {Math.round(income * 100) / 100}
+            </Text>
           </View>
           <View style={styles.columnConfig}>
             <Text style={styles.topText}> Despesas</Text>
-            <Text style={styles.despesa}> $: -{expense}</Text>
+            <Text style={styles.despesa}>
+              $: -{Math.round(expense * 100) / 100}
+            </Text>
           </View>
           <View style={styles.columnConfig}>
             <Text style={styles.topText}> Saldo</Text>
-            <Text style={styles.saldoLista}> $: {balance}</Text>
+            <Text style={styles.saldoLista}>
+              $: {Math.round(balance * 100) / 100}
+            </Text>
           </View>
         </View>
       </Box>

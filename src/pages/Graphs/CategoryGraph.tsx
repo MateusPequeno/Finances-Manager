@@ -14,7 +14,7 @@ const chartConfig = {
   useShadowColorFromDataset: false, // optional
 };
 
-export function CategoryGraph(item: { title: string; price: number }) {
+export function CategoryGraph() {
   const titleRef = useRef(null);
   const dispatch = useDispatch();
   const { transactions } = useSelector((state) => state.trs);
