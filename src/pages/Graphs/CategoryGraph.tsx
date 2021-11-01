@@ -2,6 +2,8 @@ import React, { useRef } from "react";
 import { View, Dimensions } from "react-native";
 import { PieChart } from "react-native-chart-kit";
 import { useDispatch, useSelector } from "react-redux";
+import styles from "../../styles/cssconfig";
+import { Box } from "../../components/theme";
 
 const chartConfig = {
   backgroundGradientFrom: "#1E2923",
@@ -45,16 +47,18 @@ export function CategoryGraph() {
     }, {})
   );
   return (
-    <PieChart
-      data={DATA}
-      width={Dimensions.get("window").width}
-      height={220}
-      chartConfig={chartConfig}
-      accessor={"price"}
-      backgroundColor={"transparent"}
-      paddingLeft={"10"}
-      center={[10, 10]}
-      absolute
-    />
+    <Box style={styles.boxGoals}>
+      <PieChart
+        data={DATA}
+        width={Dimensions.get("window").width}
+        height={220}
+        chartConfig={chartConfig}
+        accessor={"price"}
+        backgroundColor={"transparent"}
+        paddingLeft={"10"}
+        center={[10, 10]}
+        absolute
+      />
+    </Box>
   );
 }

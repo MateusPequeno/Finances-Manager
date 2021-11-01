@@ -328,6 +328,7 @@ export default StyleSheet.create({
   },
   boxGoals: {
     backgroundColor: "#d5d5ec",
+    alignSelf: "center",
     overflow: "hidden",
     width: Dimensions.get("window").width * 0.95,
     borderRadius: 30,
@@ -407,5 +408,20 @@ export default StyleSheet.create({
     marginLeft: 33,
     marginBottom: 5,
     fontFamily: fonts.montText,
+  },
+  boxLimite: {
+    backgroundColor: "#d5d5ec",
+    overflow: "hidden",
+    alignSelf: "center",
+    width: Dimensions.get("window").width * 0.95,
+    borderRadius: 30,
+    height: Dimensions.get("window").height * 0.21,
+    marginTop: 10,
+  },
+  advicesText: {
+    fontSize: 20,
+    color: "black",
+    fontWeight: "bold",
+    padding: 15,
   },
 });

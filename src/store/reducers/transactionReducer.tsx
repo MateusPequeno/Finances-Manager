@@ -12,13 +12,13 @@ const initialState = {
     { addedtime: 1274174256000, id: 5, title: "Calça Jeans", price: -60 },
     { addedtime: 1274174256000, id: 6, title: "Transporte", price: -10 },
     { addedtime: 779879856000, id: 7, title: "Conta de luz ", price: -90 },
-    { addedtime: 779879856000, id: 9, title: "Conta de água", price: -50 },
+    { addedtime: 779879856000, id: 9, title: "Água", price: -50 },
     { addedtime: 779879856000, id: 10, title: "Venda da Moto", price: 6000 },
     { addedtime: 1613682000000, id: 11, title: "Doação", price: -60 },
   ],
   goals: [
-    { id: 1, goalTitle: "Casa Própia ", goalPrice: 200000 },
-    { id: 2, goalTitle: "Carro Própio ", goalPrice: 60000 },
+    { id: 1, goalTitle: "Casa Própria ", goalPrice: 200000 },
+    { id: 2, goalTitle: "Carro Próprio ", goalPrice: 60000 },
     { id: 2, goalTitle: "Moto Honda", goalPrice: 8000 },
   ],
 };
