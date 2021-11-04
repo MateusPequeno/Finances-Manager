@@ -6,14 +6,7 @@ import styles from "../../styles/cssconfig";
 import { Box } from "../../components/theme";
 
 const chartConfig = {
-  backgroundGradientFrom: "#1E2923",
-  backgroundGradientFromOpacity: 0,
-  backgroundGradientTo: "#08130D",
-  backgroundGradientToOpacity: 0.5,
   color: (opacity = 1) => `rgba(26, 255, 146, ${opacity})`,
-  strokeWidth: 2, // optional, default 3
-  barPercentage: 0.5,
-  useShadowColorFromDataset: false, // optional
 };
 
 export function CategoryGraph() {
@@ -47,16 +40,15 @@ export function CategoryGraph() {
     }, {})
   );
   return (
-    <Box style={styles.boxGoals}>
+    <Box style={styles.boxCategoryGraph}>
       <PieChart
         data={DATA}
-        width={Dimensions.get("window").width}
-        height={220}
+        width={Dimensions.get("window").width * 0.9}
+        height={Dimensions.get("window").height * 0.3}
         chartConfig={chartConfig}
         accessor={"price"}
         backgroundColor={"transparent"}
-        paddingLeft={"10"}
-        center={[10, 10]}
+        // center={[10, 10]}
         absolute
       />
     </Box>

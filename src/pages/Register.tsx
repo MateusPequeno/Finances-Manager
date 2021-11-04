@@ -54,18 +54,11 @@ export function Register() {
     if (!name) return Alert.alert("Me diga seu nome antes de continuarmos 😂");
     /* (if (!balance)
     return Alert.alert("Me diga seu saldo mesmo que seja 0 ou negativo 😂");
-  
     */
     try {
-      await AsyncStorage.setItem("@pcc-app:user", name);
-      //  await AsyncStorage.setItem("@pcc-app:balance", JSON.stringify(balance));
-
-      navigation.navigate("Dashboard", {
-        title: "Pronto",
-        buttonTitle: "Começar",
-        icon: "smile",
-        nextScreen: "Dashboard",
-      });
+      await AsyncStorage.setItem("@tcc-app:user", name);
+      //  await AsyncStorage.setItem("@tcc-app:balance", JSON.stringify(balance));
+      navigation.navigate("Dashboard");
     } catch {
       Alert.alert("Não foi possível salvar o nome de usuário");
     }

@@ -6,6 +6,7 @@ import { Button } from "../../../src/components/Button";
 import bckImage from "../../../assets/blueBck.jpg";
 import { useNavigation } from "@react-navigation/native";
 import styles from "../../styles/cssconfig";
+import { TouchableOpacity } from "react-native-gesture-handler";
 export function SavingOBJ() {
   const navigation = useNavigation();
   function handlePress() {
@@ -14,18 +15,20 @@ export function SavingOBJ() {
   return (
     <ImageBackground source={bckImage} style={styles.bckImage}>
       <SafeAreaView style={styles.container}>
-        <View>
-          <Text style={styles.headerText}>Começar a poupar</Text>
-          <StatusBar style="auto" />
-        </View>
-        <View>
-          <Text style={styles.descriptionTextOBJ}>
-            Com disciplina, consciência, comprometimento e atenção mais nosso
-            app você conseguira poupar dinheiro para conquistar seus objetivos!
-          </Text>
-        </View>
-        <Image source={savingImage} style={styles.image} resizeMode="contain" />
-        <Button title={"Vamos la!"} onPress={handlePress} />
+        <Text style={styles.headerText}>Começar a {"\n"}poupar</Text>
+        <StatusBar style="auto" />
+        <Text style={styles.descriptionTextOBJ}>
+          Com disciplina, consciência, comprometimento e atenção mais nosso app
+          você conseguira poupar dinheiro para conquistar seus objetivos!
+        </Text>
+        <Image
+          source={savingImage}
+          style={styles.debtImage}
+          resizeMode="contain"
+        />
+        <TouchableOpacity style={{ marginBottom: "15%" }}>
+          <Button title={"Vamos la!"} onPress={handlePress} />
+        </TouchableOpacity>
       </SafeAreaView>
     </ImageBackground>
   );

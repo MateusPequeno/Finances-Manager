@@ -11,6 +11,17 @@ import { GoalsGraph } from "../pages/Graphs/GoalsGraph";
 import { Box } from "../components/theme";
 import { IncomesMinusExpenses } from "./Graphs/IncomesMinusExpenses";
 import { AdvicesGenerator } from "./Advices/Advices";
+import AsyncStorage from "@react-native-async-storage/async-storage";
+
+// Log to show data "inside" local storage aka AsyncStorage.
+AsyncStorage.getAllKeys((err, keys) => {
+  AsyncStorage.multiGet(keys, (error, stores) => {
+    stores.map((result, i, store) => {
+      console.log("Dados :", { [store[i][0]]: store[i][1] }, "\n");
+      return true;
+    });
+  });
+});
 
 export function Dashboard() {
   const dispatch = useDispatch();
@@ -24,15 +35,7 @@ export function Dashboard() {
   function handleOutcomesIconPress() {
     navigation.navigate("OutcomesInsert");
   }
-  //const [userBalance, setUserBalance] = useState<string>();
-  /*
-  useEffect(() => {
-    async function loadStorageUserBalance() {
-      const balance = await AsyncStorage.getItem("@pcc-app:balance");
-      setUserBalance(balance || "");
-    }
-    loadStorageUserBalance();
-  }, [userBalance]);*/
+
   const dispatchDashboard = useDispatch();
   const { transactions } = useSelector((state) => state.trs);
   const prices = transactions.map((transaction: any) => transaction.price);
@@ -48,7 +51,7 @@ export function Dashboard() {
   const income = expense + balance;
   //REDUX-PERSIST PARA SALVAR OS DADOS DO REDUX COM O ASYNC
   return (
-    <ScrollView style={{ backgroundColor: "#f7e2c5" }}>
+    <ScrollView style={{ backgroundColor: "#a8a6b6" }}>
       <Heading />
       <View style={styles.container}>
         <Box style={styles.boxSaldo}>

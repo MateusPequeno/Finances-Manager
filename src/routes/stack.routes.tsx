@@ -12,6 +12,7 @@ import { Register } from "../pages/Register";
 import { GoalsInsert } from "../pages/InsertPages/GoalsInsert";
 import AuthRoutes from "./tab.routes";
 import { BalanceInsert } from "../pages/BalanceInsert";
+import AsyncStorage from "@react-native-async-storage/async-storage";
 
 const stackRoutes = createStackNavigator();
 

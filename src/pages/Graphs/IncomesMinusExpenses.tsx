@@ -8,7 +8,7 @@ const chartConfig = {
   backgroundGradientFromOpacity: 1,
   backgroundGradientTo: "#ffffff",
   backgroundGradientToOpacity: 1,
-  color: (opacity = 0) => `#000000`,
+  color: (opacity = 1) => `#000000`,
 };
 
 export function IncomesMinusExpenses() {
@@ -22,20 +22,21 @@ export function IncomesMinusExpenses() {
     prices
       .filter((price: number) => price < 0)
       .reduce((prev: number, cur: number) => (prev += cur), 0) * -1;
-  const income = expense + balance;
+  const income =
+    Math.round(expense * 100) / 100 + Math.round(balance * 100) / 100;
 
   const data = {
     labels: ["Despesas", "Rendimentos", "Saldo"],
     datasets: [
       {
-        data: [expense, income, balance],
+        data: [expense, Math.round(income * 100) / 100, balance],
       },
     ],
   };
 
   return (
     <BarChart
-      style={{ alignSelf: "center", borderRadius: 25 }}
+      style={{ alignSelf: "center", borderRadius: 10 }}
       data={data}
       width={Dimensions.get("window").width * 0.95}
       height={220}

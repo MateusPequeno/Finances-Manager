@@ -6,6 +6,7 @@ import { Button } from "../../../src/components/Button";
 import { useNavigation } from "@react-navigation/native";
 import bckImage from "../../../assets/blueBck.jpg";
 import styles from "../../styles/cssconfig";
+import { TouchableOpacity } from "react-native-gesture-handler";
 export function DebtOBJ() {
   const navigation = useNavigation();
   function handlePress() {
@@ -18,18 +19,22 @@ export function DebtOBJ() {
       style={styles.bckImage}
     >
       <SafeAreaView style={styles.container}>
-        <View>
-          <Text style={styles.headerText}>Quitar minhas dividas</Text>
-          <StatusBar style="auto" />
-        </View>
-        <View>
+        <Text style={styles.headerText}>Quitar minhas dividas</Text>
+        <StatusBar style="auto" />
+        <View style={{ flex: 2, alignItems: "center" }}>
           <Text style={styles.descriptionTextOBJ}>
             Sair do vermelho é uma tarefa que demanda comprometimento e
             disciplina, mas não se preocupe, vamos te ajudar com isso.
           </Text>
+          <Image
+            source={debtImg}
+            style={styles.debtImage}
+            resizeMode="contain"
+          />
         </View>
-        <Image source={debtImg} style={styles.image} resizeMode="contain" />
-        <Button title={"Vamos la!"} onPress={handlePress} />
+        <TouchableOpacity style={{ marginBottom: "10%" }}>
+          <Button title={"Vamos la!"} onPress={handlePress} />
+        </TouchableOpacity>
       </SafeAreaView>
     </ImageBackground>
   );

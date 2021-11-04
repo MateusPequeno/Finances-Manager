@@ -84,7 +84,7 @@ export function Transactions() {
   return (
     <ImageBackground
       source={bckImage}
-      resizeMode="cover"
+      // resizeMode="cover"
       style={styles.bckImageTransaction}
     >
       <Heading />

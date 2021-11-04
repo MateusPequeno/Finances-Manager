@@ -26,22 +26,19 @@ export function Objectives() {
       resizeMode="cover"
       style={styles.bckImage}
     >
-      <SafeAreaView style={styles.container}>
-        <View>
-          <Text style={styles.headerText}>Qual o seu objetivo?</Text>
-          <StatusBar style="auto" />
-        </View>
-        <View>
+      <View style={styles.container}>
+        <Text style={styles.headerText}>Qual o seu objetivo?</Text>
+
+        <View style={styles.objectivesView}>
           <Text style={styles.descriptionTextOBJ}>
             Cuidar das suas finanças fica mais fácil se soubermos seu objetivo.
           </Text>
+          <Button title={"Quitar minhas dividas"} onPress={handleDebt} />
+          <Button title={"Começar a poupar"} onPress={handleSaving} />
+          <Button title={"Começar a investir"} onPress={handleInvest} />
+          <Button title={"Organizar finanças"} onPress={handleOrg} />
         </View>
-
-        <Button title={"Quitar minhas dividas"} onPress={handleDebt} />
-        <Button title={"Começar a poupar"} onPress={handleSaving} />
-        <Button title={"Começar a investir"} onPress={handleInvest} />
-        <Button title={"Organizar finanças"} onPress={handleOrg} />
-      </SafeAreaView>
+      </View>
     </ImageBackground>
   );
 }

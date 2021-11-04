@@ -1,17 +1,19 @@
 import { Dimensions, StyleSheet } from "react-native";
 import fonts from "../styles/fonts";
+const boxColor = "#e6e2f8";
 export default StyleSheet.create({
   container: {
-    flex: 1,
     alignItems: "center",
     justifyContent: "center",
-  },
-
-  bckImageTransaction: {
     flex: 1,
+  },
+  objectivesView: {
     alignItems: "center",
-    justifyContent: "flex-end",
-    position: "relative",
+    justifyContent: "center",
+    flex: 4,
+  },
+  bckImageTransaction: {
+    alignItems: "center",
   },
   boxHeaderTransaction: {
     paddingHorizontal: 10,
@@ -38,19 +40,18 @@ export default StyleSheet.create({
     borderBottomLeftRadius: 10,
   },
   boxTres: {
-    flex: 1,
     paddingLeft: 24,
     paddingRight: 24,
     paddingBottom: 10,
     paddingTop: 10,
+
     marginBottom: 10,
   },
   boxQuatro: {
     overflow: "hidden",
     borderBottomWidth: 1,
     borderBottomColor: "#575151",
-    height: 50,
-    position: "relative",
+    flex: 1,
     backgroundColor: "#fff",
   },
 
@@ -59,8 +60,8 @@ export default StyleSheet.create({
     paddingHorizontal: 10,
     borderBottomWidth: 1,
     borderBottomColor: "silver",
-    height: 50,
-    position: "relative",
+    height: Dimensions.get("window").height * 0.048,
+    // position: "relative",
     backgroundColor: "white",
   },
   animatedView: {
@@ -68,8 +69,8 @@ export default StyleSheet.create({
     color: "white",
     fontFamily: fonts.text,
     fontWeight: "900",
-    position: "absolute",
-    height: 50,
+    //  position: "absolute",
+    height: Dimensions.get("window").height * 0.048,
     width: "14%",
     right: -20,
     alignItems: "center",
@@ -80,8 +81,8 @@ export default StyleSheet.create({
 
   containerButton: {
     backgroundColor: "#FFC062",
-    height: 56,
-    width: 344,
+    height: Dimensions.get("window").height * 0.07,
+    width: Dimensions.get("window").width * 0.85,
     borderRadius: 100,
     justifyContent: "center",
     alignItems: "center",
@@ -101,13 +102,15 @@ export default StyleSheet.create({
     top: 12.5,
   },
   bckImage: {
-    flex: 1,
+    width: Dimensions.get("window").width * 1,
+    height: Dimensions.get("window").height * 1,
   },
   headerText: {
     fontSize: 50,
     textAlign: "center",
     color: "white",
-    marginBottom: 20,
+    flex: 1,
+    marginTop: "15%",
     fontFamily: fonts.heading,
   },
   descriptionText: {
@@ -123,8 +126,7 @@ export default StyleSheet.create({
     fontSize: 25,
     textAlign: "center",
     color: "#FFC062",
-    marginTop: 300,
-    paddingHorizontal: 50,
+
     fontFamily: fonts.heading,
     fontWeight: "bold",
   },
@@ -132,12 +134,11 @@ export default StyleSheet.create({
     fontSize: 25,
     textAlign: "center",
     color: "white",
-    padding: 5,
     fontFamily: fonts.text,
   },
-  image: {
-    width: 322,
-    height: Dimensions.get("window").width * 0.7,
+  debtImage: {
+    width: Dimensions.get("window").width * 0.75,
+    height: Dimensions.get("window").height * 0.35,
   },
   content: {
     flex: 1,
@@ -213,6 +214,7 @@ export default StyleSheet.create({
     lineHeight: 40,
   },
   card: {
+    padding: 10,
     justifyContent: "center",
     alignItems: "center",
   },
@@ -326,8 +328,17 @@ export default StyleSheet.create({
     paddingHorizontal: 24,
     borderBottomColor: "#776c6c",
   },
+  boxCategoryGraph: {
+    backgroundColor: boxColor,
+    alignSelf: "center",
+    overflow: "hidden",
+    flex: 1,
+    //width: Dimensions.get("window").width * 0.95,
+    borderRadius: 30,
+    padding: 10,
+  },
   boxGoals: {
-    backgroundColor: "#d5d5ec",
+    backgroundColor: boxColor,
     alignSelf: "center",
     overflow: "hidden",
     width: Dimensions.get("window").width * 0.95,
@@ -335,16 +346,16 @@ export default StyleSheet.create({
     marginBottom: 10,
   },
   boxSaldo: {
-    backgroundColor: "#d5d5ec",
+    backgroundColor: boxColor,
     overflow: "hidden",
     width: Dimensions.get("window").width * 0.95,
     borderRadius: 30,
-    height: Dimensions.get("window").height * 0.21,
+    flex: 1,
     marginTop: 10,
   },
   boxHeader: {
     paddingHorizontal: 25,
-    backgroundColor: "#fff",
+    backgroundColor: boxColor,
     // flexDirection: "row",
     justifyContent: "space-between",
     //borderBottomWidth: 1,
@@ -410,18 +421,19 @@ export default StyleSheet.create({
     fontFamily: fonts.montText,
   },
   boxLimite: {
-    backgroundColor: "#d5d5ec",
+    backgroundColor: boxColor,
     overflow: "hidden",
     alignSelf: "center",
     width: Dimensions.get("window").width * 0.95,
     borderRadius: 30,
-    height: Dimensions.get("window").height * 0.21,
+    flex: 1,
     marginTop: 10,
   },
   advicesText: {
-    fontSize: 20,
-    color: "black",
-    fontWeight: "bold",
+    fontSize: 18,
+
     padding: 15,
+    fontFamily: fonts.montText,
+    color: "#111011",
   },
 });

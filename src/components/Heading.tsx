@@ -1,5 +1,6 @@
+import AsyncStorage from "@react-native-async-storage/async-storage";
 import React, { useEffect, useState } from "react";
-import { Text, Image, View, AsyncStorage } from "react-native";
+import { Text, Image, View } from "react-native";
 import UserImg from "../../assets/UserAvatar.png";
 import styles from "../styles/cssconfig";
 
@@ -8,7 +9,7 @@ export function Heading() {
 
   useEffect(() => {
     async function loadStorageUserName() {
-      const user = await AsyncStorage.getItem("@pcc-app:user");
+      const user = await AsyncStorage.getItem("@tcc-app:user");
       setUserName(user || "");
     }
     loadStorageUserName();

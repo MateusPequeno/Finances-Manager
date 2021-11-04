@@ -6,6 +6,7 @@ import { SafeAreaView, Text, View, Image, ImageBackground } from "react-native";
 import { Button } from "../../../src/components/Button";
 import { useNavigation } from "@react-navigation/native";
 import styles from "../../styles/cssconfig";
+import { TouchableOpacity } from "react-native-gesture-handler";
 
 export function OrgOBJ() {
   const navigation = useNavigation();
@@ -15,19 +16,22 @@ export function OrgOBJ() {
   return (
     <ImageBackground source={bckImage} style={styles.bckImage}>
       <SafeAreaView style={styles.container}>
-        <View>
-          <Text style={styles.headerText}>Organizar finanças</Text>
-          <StatusBar style="auto" />
-        </View>
-        <View>
-          <Text style={styles.descriptionTextOBJ}>
-            Para ter maior organização, vamos te mostrar gráficos de suas
-            despesas, rendimentos, desenvolvimento e relação entre
-            rendimentos-despesas.
-          </Text>
-        </View>
-        <Image source={organizeImg} style={styles.image} resizeMode="contain" />
-        <Button title={"Vamos la!"} onPress={handlePress} />
+        <Text style={styles.headerText}>Organizar finanças</Text>
+        <StatusBar style="auto" />
+        <Text style={styles.descriptionTextOBJ}>
+          Para ter maior organização, vamos te mostrar gráficos de suas
+          despesas, rendimentos, desenvolvimento e relação entre
+          rendimentos-despesas.
+        </Text>
+
+        <Image
+          source={organizeImg}
+          style={styles.debtImage}
+          resizeMode="contain"
+        />
+        <TouchableOpacity style={{ marginBottom: "15%" }}>
+          <Button title={"Vamos la!"} onPress={handlePress} />
+        </TouchableOpacity>
       </SafeAreaView>
     </ImageBackground>
   );

@@ -36,14 +36,8 @@ export function BalanceInsert() {
     try {
       if (!balance)
         return Alert.alert("Me diga seu saldo mesmo que seja 0 ou negativo 😂");
-      await AsyncStorage.setItem("@pcc-app:balance", balance);
-      navigation.navigate("Dashboard", {
-        title: "Prontinho",
-        subtitle: "Teste Teste Teste",
-        buttonTitle: "Começar",
-        icon: "smile",
-        nextScreen: "Dashboard",
-      });
+      await AsyncStorage.setItem("@tcc-app:balance", balance);
+      navigation.navigate("Dashboard");
     } catch {
       Alert.alert("Não foi possível salvar o saldo de usuário");
     }
