@@ -165,6 +165,11 @@ export default StyleSheet.create({
     textAlign: "center",
     borderRadius: 20,
   },
+  dataBarView: {
+    alignItems: "center",
+    flexDirection: "row",
+  },
+  
   title: {
     marginTop: 20, // Espaço o titulo do icone
     fontSize: 20,

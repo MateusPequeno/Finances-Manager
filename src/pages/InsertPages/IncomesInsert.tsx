@@ -10,6 +10,7 @@ import {
   TextInput,
   Platform,
   ImageBackground,
+  TouchableOpacity,
 } from "react-native";
 import { useNavigation } from "@react-navigation/core";
 import { Button } from "../../../src/components/Button";
@@ -18,6 +19,8 @@ import styles from "../../styles/cssconfig";
 import bckImage from "../../../assets/blueBck.jpg";
 import { addTransaction } from "../../store/actions/transactionActions";
 import { useDispatch } from "react-redux";
+import { SimpleLineIcons } from "@expo/vector-icons";
+import { InputComponent } from "../../components/DatesInput";
 
 export function IncomesInsert() {
   const dispatch = useDispatch();
@@ -26,16 +29,17 @@ export function IncomesInsert() {
   const [isSelected, setSelection] = useState(false);
   const [price, setPrice] = useState();
   const [title, setTitle] = useState();
+
   const [selectedCategory, setselectedCategory] = useState();
-  const [date, setDate] = useState(new Date(1598051730000));
+  const [addedtime, setAddedTime] = useState(new Date(1598051730000));
   const [mode, setMode] = useState("date");
   const [show, setShow] = useState(false);
-  const titleRef = useRef(null);
   const navigation = useNavigation();
   const onChange = (event, selectedDate) => {
-    const currentDate = selectedDate || date;
+    const currentDate = selectedDate || addedtime;
     setShow(Platform.OS === "ios");
-    setDate(currentDate);
+    setAddedTime(currentDate);
+    console.log(addedtime);
   };
   const showMode = (currentMode) => {
     setShow(true);
@@ -57,11 +61,12 @@ export function IncomesInsert() {
 
   function handleSubmit() {
     navigation.navigate("Overview");
-    const transaction = { price, title };
-    if (!price || !title) return alert("Insira os detalhes");
+    const transaction = { price, title, addedtime };
+    if (!price || !title || !addedtime) return alert("Insira os detalhes");
     dispatch(addTransaction(transaction));
     setPrice("");
     setTitle("");
+    setAddedTime("");
   }
   return (
     <ImageBackground source={bckImage} style={styles.bckImage}>
@@ -98,11 +103,20 @@ export function IncomesInsert() {
                 />
 
                 <Text style={styles.subTitle}>Data:</Text>
-                <Button
-                  onPress={showDatepicker}
-                  style={styles.dateButton}
-                  title="Insira a data"
-                />
+                <TouchableOpacity style={styles.dataBarView} onPress = {showDatepicker}>
+                  <InputComponent
+                    type="number"
+                    style={styles.input}
+                    placeholder={"01/01/2021"}
+                  />
+                  <SimpleLineIcons
+                    name="calendar"
+                    style={{ marginLeft: -60, paddingTop : 12 }}
+                    size={40}
+                    color="black"
+                    onPress={showDatepicker}
+                  />
+                </TouchableOpacity>
                 {show && (
                   <DateTimePicker
                     testID="dateTimePicker"

@@ -10,7 +10,7 @@ export const addTransaction =
       id,
       title,
       price: +price,
-      addedtime: mainTime(),
+      addedtime,
     };
 
     dispatch({ type: ADD_TRANSACTION, payload: newTransaction });
@@ -33,7 +33,7 @@ export const addGoal =
 export const deleteTransaction = (id) => (dispatch, getState) => {
   dispatch({ type: DELETE_TRANSACTION, payload: id });
 };
-
+/*
 export const mainTime = () => {
   function pad(n) {
     return n < 10 ? "0" + n : n;
@@ -55,3 +55,4 @@ export const mainTime = () => {
   // const mainTime = moment(`${a}T00:00:00`).valueOf();
   return moment(`${MiliTime}T00:00:00`).valueOf();
 };
+*/
