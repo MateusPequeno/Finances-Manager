@@ -1,0 +1,35 @@
+import { Dimensions, StyleSheet } from "react-native";
+export default StyleSheet.create({
+  buttonRemove: {
+    width: 50,
+    height: 30,
+    backgroundColor: "#E83F5B",
+    marginTop: 15,
+    borderRadius: 5,
+    justifyContent: "center",
+    position: "relative",
+    alignItems: "center",
+    right: 3,
+    paddingLeft: 20,
+  },
+  box: {
+    backgroundColor: "#fff",
+    borderBottomWidth: 1,
+    height: 50,
+    //borderRadius: 80,
+    position: "relative",
+    width: Dimensions.get("window").width * 0.9,
+    flexDirection: "row",
+    overflow: "hidden",
+    paddingHorizontal: 24,
+    borderBottomColor: "#776c6c",
+  },
+  animView: {
+    justifyContent: "space-between",
+    flexDirection: "row",
+    alignItems: "center",
+    height: 50,
+    padding: 24,
+    marginBottom: 30,
+  },
+});

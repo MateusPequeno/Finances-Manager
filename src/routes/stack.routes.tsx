@@ -1,18 +1,17 @@
 import React from "react";
 import { createStackNavigator } from "@react-navigation/stack";
-import { Welcome } from "../pages/Welcome";
-import { Objectives } from "../pages/Objectives";
-import { SavingOBJ } from "../pages/ObjectivesPages/SavingOBJ";
-import { OrgOBJ } from "../pages/ObjectivesPages/OrgOBJ";
-import { InvestOBJ } from "../pages/ObjectivesPages/InvestOBJ";
-import { DebtOBJ } from "../pages/ObjectivesPages/DebtOBJ";
-import { OutcomesInsert } from "../pages/InsertPages/OutcomesInsert";
-import { IncomesInsert } from "../pages/InsertPages/IncomesInsert";
-import { Register } from "../pages/Register";
-import { GoalsInsert } from "../pages/InsertPages/GoalsInsert";
+import { Welcome } from "../pages/Welcome/Welcome";
+import { Objectives } from "../pages/Objectives/Objectives";
+import { SavingOBJ } from "../pages/ObjectivesPages/SavingOBJ/SavingOBJ";
+import { OrgOBJ } from "../pages/ObjectivesPages/OrgOBJ/OrgOBJ";
+import { InvestOBJ } from "../pages/ObjectivesPages/InvestOBJ/InvestOBJ";
+import { DebtOBJ } from "../pages/ObjectivesPages/DebtOBJ/DebtOBJ";
+import { OutcomesInsert } from "../pages/InsertPages/OutcomesInsert/OutcomesInsert";
+import { IncomesInsert } from "../pages/InsertPages/IncomesInsert/IncomesInsert";
+import { Register } from "../pages/Register/Register";
+import { GoalsInsert } from "../pages/InsertPages/GoalsInsert/GoalsInsert";
 import AuthRoutes from "./tab.routes";
-import { BalanceInsert } from "../pages/BalanceInsert";
-import AsyncStorage from "@react-native-async-storage/async-storage";
+import { BalanceInsert } from "../pages/BalanceInsert/BalanceInsert";
 
 const stackRoutes = createStackNavigator();
 

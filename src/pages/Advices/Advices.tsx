@@ -1,8 +1,7 @@
-import React, { useEffect, useRef, useState } from "react";
-import { View, Dimensions, Text } from "react-native";
-import { PieChart } from "react-native-chart-kit";
-import { useDispatch, useSelector } from "react-redux";
-import styles from "../../styles/cssconfig";
+import React, { useEffect, useState } from "react";
+import { Text } from "react-native";
+import { useSelector } from "react-redux";
+import styles from "./styles";
 
 import { Box } from "../../components/theme";
 

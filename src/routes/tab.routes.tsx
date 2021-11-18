@@ -2,10 +2,10 @@ import React from "react";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { MaterialIcons } from "@expo/vector-icons";
 import { Platform } from "react-native";
-import { Dashboard } from "../pages/Dashboard";
-import { Transactions } from "../pages/Transactions";
-import { IncomesInsert } from "../pages/InsertPages/IncomesInsert";
-import { OutcomesInsert } from "../pages/InsertPages/OutcomesInsert";
+import { Dashboard } from "../pages/Dashboard/Dashboard";
+import { Transactions } from "../pages/Transactions/Transactions";
+import { IncomesInsert } from "../pages/InsertPages/IncomesInsert/IncomesInsert";
+import { OutcomesInsert } from "../pages/InsertPages/OutcomesInsert/OutcomesInsert";
 
 const AppTab = createBottomTabNavigator();
 
