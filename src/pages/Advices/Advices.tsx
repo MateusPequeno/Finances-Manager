@@ -2,8 +2,7 @@ import React, { useEffect, useState } from "react";
 import { Text } from "react-native";
 import { useSelector } from "react-redux";
 import styles from "./styles";
-
-import { Box } from "../../components/theme";
+import { Box } from "../../styles/globalstyles";
 
 export function AdvicesGenerator() {
   const [adviceText, setAdviceText] = useState<string>();

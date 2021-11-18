@@ -1,50 +1,55 @@
 import { Dimensions, StyleSheet } from "react-native";
-import fonts from "../../styles/fonts";
+
 export default StyleSheet.create({
-  bckImage: {
-    width: Dimensions.get("window").width * 1,
-    height: Dimensions.get("window").height * 1,
+  boxHeaderTransaction: {
+    paddingHorizontal: 10,
+    backgroundColor: "white",
+    flexDirection: "row",
+    justifyContent: "space-between",
+    borderBottomWidth: 1,
+    borderBottomColor: "#575151",
+    paddingBottom: 8,
+    paddingTop: 8,
+    marginTop: 10,
+    borderTopRightRadius: 10,
+    borderTopLeftRadius: 10,
   },
-  container: {
+  boxFooter: {
+    paddingHorizontal: 10,
+    backgroundColor: "white",
+    flexDirection: "row",
+    justifyContent: "space-between",
+    borderBottomWidth: 1,
+    borderBottomColor: "#575151",
+    paddingBottom: 8,
+    borderBottomRightRadius: 10,
+    borderBottomLeftRadius: 10,
+  },
+  bckImageTransaction: {
     alignItems: "center",
-    justifyContent: "center",
+  },
+  boxTres: {
+    paddingLeft: 24,
+    paddingRight: 24,
+    paddingBottom: 10,
+    paddingTop: 10,
+    marginBottom: 10,
+  },
+  boxQuatro: {
+    overflow: "hidden",
+    borderBottomWidth: 1,
+    borderBottomColor: "#575151",
     flex: 1,
+    backgroundColor: "#fff",
   },
-  content: {
-    flex: 1,
-    width: "100%",
-  },
-  form: {
-    flex: 1,
-    justifyContent: "center",
-    paddingHorizontal: 20,
-    alignItems: "center",
-  },
-  emoji: {
-    fontSize: 30,
-  },
-  title: {
-    marginTop: 20, // Espaço o titulo do icone
-    fontSize: 20,
-    lineHeight: 32,
-    textAlign: "center",
-    color: "#ffffff",
-    fontFamily: fonts.heading,
-  },
-  input: {
-    borderWidth: 1,
-    borderColor: "#fcfcfc",
-    backgroundColor: "#ffffff",
-    color: "#000",
-    width: "100%",
-    fontSize: 18,
-    marginTop: 15,
-    padding: 10,
-    textAlign: "center",
-    borderRadius: 20,
-  },
-  footer: {
-    marginTop: 40,
-    paddingHorizontal: 0,
+
+  boxCinco: {
+    overflow: "hidden",
+    paddingHorizontal: 10,
+    borderBottomWidth: 1,
+    borderBottomColor: "silver",
+    height: Dimensions.get("window").height * 0.048,
+    // position: "relative",
+    backgroundColor: "white",
   },
 });

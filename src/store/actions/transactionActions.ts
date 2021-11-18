@@ -2,7 +2,7 @@ import moment from "moment";
 import { ADD_TRANSACTION, DELETE_TRANSACTION, ADD_GOAL } from "./types";
 
 export const addTransaction =
-  ({ title, price, addedtime }) =>
+  ({ title, price, addedTime }) =>
   (dispatch) => {
     const id = Math.floor(Math.random() * 600000);
 
@@ -10,7 +10,7 @@ export const addTransaction =
       id,
       title,
       price: +price,
-      addedtime,
+      addedTime,
     };
 
     dispatch({ type: ADD_TRANSACTION, payload: newTransaction });

@@ -1,6 +1,5 @@
 import { StyleSheet } from "react-native";
-const boxColor = "#e6e2f8";
-import fonts from "../../styles/fonts";
+import { fonts, colors } from "../../styles/globalstyles";
 export default StyleSheet.create({
   containerTop: {
     alignItems: "center",
@@ -8,7 +7,7 @@ export default StyleSheet.create({
   },
   boxHeader: {
     paddingHorizontal: 25,
-    backgroundColor: boxColor,
+    backgroundColor: colors.boxColor,
     // flexDirection: "row",
     justifyContent: "space-between",
     //borderBottomWidth: 1,

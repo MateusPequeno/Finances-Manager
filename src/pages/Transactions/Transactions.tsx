@@ -8,12 +8,11 @@ import {
   StyleSheet,
   Animated,
 } from "react-native";
-
 import { Top } from "../../components/Top/Top";
 import { Heading } from "../../components/Heading/Heading";
 import { useDispatch, useSelector } from "react-redux";
-import { Box } from "../../components/theme";
-import fonts from "./styles";
+import { Box } from "../../styles/globalstyles";
+
 import Expense from "../../components/Expense/Expense";
 import { useValue } from "react-native-reanimated";
 import { deleteTransaction } from "../../store/actions/transactionActions";
@@ -38,7 +37,7 @@ export function Transactions() {
   );
 
   const allDates = transactions
-    .map(({ addedtime }) => addedtime)
+    .map(({ addedTime }) => addedTime)
     .filter(function (value: any, index: any, array: string | any[]) {
       return array.indexOf(value) == index;
     });
@@ -47,7 +46,7 @@ export function Transactions() {
 
   const Prices = ({ time }) => {
     const prices = transactions
-      .filter(({ addedtime }) => addedtime == time)
+      .filter(({ addedTime }) => addedTime == time)
       .map(({ price }) => {
         return price;
       });
@@ -63,8 +62,8 @@ export function Transactions() {
   const renderHeader = ({ section: { data } }) => {
     return (
       <Box style={styles.boxHeaderTransaction}>
-        <Text>{moment(data[0].addedtime, "x").format("DD MMM YYYY")}</Text>
-        <Prices time={data[0].addedtime} />
+        <Text>{moment(data[0].addedTime, "x").format("DD MMM YYYY")}</Text>
+        <Prices time={data[0].addedTime} />
       </Box>
     );
   };

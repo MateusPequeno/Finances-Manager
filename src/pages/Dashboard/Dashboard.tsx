@@ -8,7 +8,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { Heading } from "../../components/Heading/Heading";
 import { CategoryGraph } from "../../pages/Graphs/CategoryGraph/CategoryGraph";
 import { GoalsGraph } from "../../pages/Graphs/GoalsGraph/GoalsGraph";
-import { Box } from "../../components/theme";
+import { Box } from "../../styles/globalstyles";
 import { IncomesMinusExpenses } from "../Graphs/IncomesMinusExpenses/IncomesMinusExpenses";
 import { AdvicesGenerator } from "../Advices/Advices";
 import AsyncStorage from "@react-native-async-storage/async-storage";
@@ -47,9 +47,8 @@ export function Dashboard() {
     prices
       .filter((price: number) => price < 0)
       .reduce((prev: number, cur: number) => (prev += cur), 0) * -1;
-
   const income = expense + balance;
-  //REDUX-PERSIST PARA SALVAR OS DADOS DO REDUX COM O ASYNC
+
   return (
     <ScrollView style={{ backgroundColor: "#a8a6b6" }}>
       <Heading />

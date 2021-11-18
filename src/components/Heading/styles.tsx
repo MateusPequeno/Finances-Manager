@@ -1,5 +1,5 @@
 import { StyleSheet } from "react-native";
-import fonts from "../../styles/fonts";
+import { fonts } from "../../styles/globalstyles";
 export default StyleSheet.create({
   containerDashboard: {
     width: "100%",

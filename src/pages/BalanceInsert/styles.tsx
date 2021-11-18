@@ -1,6 +1,5 @@
 import { Dimensions, StyleSheet } from "react-native";
-const boxColor = "#e6e2f8";
-import fonts from "../../styles/fonts";
+import { fonts } from "../../styles/globalstyles";
 export default StyleSheet.create({
   bckImage: {
     width: Dimensions.get("window").width * 1,

@@ -1,6 +1,6 @@
 import { Dimensions, StyleSheet } from "react-native";
-const boxColor = "#e6e2f8";
-import fonts from "../../styles/fonts";
+import { fonts, colors } from "../../styles/globalstyles";
+
 export default StyleSheet.create({
   bckImage: {
     width: Dimensions.get("window").width * 1,
@@ -12,7 +12,7 @@ export default StyleSheet.create({
     flex: 1,
   },
   boxSaldo: {
-    backgroundColor: boxColor,
+    backgroundColor: colors.boxColor,
     overflow: "hidden",
     width: Dimensions.get("window").width * 0.95,
     borderRadius: 30,
@@ -73,7 +73,7 @@ export default StyleSheet.create({
     fontFamily: fonts.text,
   },
   boxLimite: {
-    backgroundColor: boxColor,
+    backgroundColor: colors.boxColor,
     overflow: "hidden",
     alignSelf: "center",
     width: Dimensions.get("window").width * 0.95,

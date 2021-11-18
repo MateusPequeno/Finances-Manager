@@ -1,9 +1,9 @@
 import React, { useRef } from "react";
-import { View, Dimensions } from "react-native";
+import { Dimensions } from "react-native";
 import { PieChart } from "react-native-chart-kit";
 import { useDispatch, useSelector } from "react-redux";
 import styles from "./styles";
-import { Box } from "../../../components/theme";
+import { Box } from "../../../styles/globalstyles";
 
 const chartConfig = {
   color: (opacity = 1) => `rgba(26, 255, 146, ${opacity})`,
@@ -13,8 +13,8 @@ export function CategoryGraph() {
   const titleRef = useRef(null);
   const dispatch = useDispatch();
   const { transactions } = useSelector((state) => state.trs);
-  const price = transactions.map((transaction: any) => transaction.price);
-  const title = transactions.map((transaction: any) => transaction.title);
+  const price = transactions.map((transaction) => transaction.price);
+  const title = transactions.map((transaction) => transaction.title);
 
   const DATA = Object.values(
     transactions.reduce((acc: any, item: any) => {

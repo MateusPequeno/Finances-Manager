@@ -43,6 +43,7 @@ export function Welcome() {
     }
     console.log("Done");
   };
+
   return (
     <ImageBackground source={bckPng} resizeMode="cover" style={styles.bckImage}>
       <View style={styles.container}>

@@ -21,14 +21,14 @@ import { useDispatch } from "react-redux";
 
 export function OutcomesInsert() {
   const dispatch = useDispatch();
-  const [isFocused, setIsFocused] = useState(false);
-  const [isFilled, setIsFilled] = useState(false);
-  const [isSelected, setSelection] = useState(false);
-  const [price, setPrice] = useState();
-  const [title, setTitle] = useState();
+  const [isFocused, setIsFocused] = useState<boolean>(false);
+  const [isFilled, setIsFilled] = useState<boolean>(false);
+  const [isSelected, setSelection] = useState<boolean>(false);
+  const [price, setPrice] = useState<number>(0);
+  const [title, setTitle] = useState<string>();
   const [date, setDate] = useState(new Date(1598051730000));
   const [mode, setMode] = useState("date");
-  const [show, setShow] = useState(false);
+  const [show, setShow] = useState<boolean>(false);
   const titleRef = useRef(null);
   const navigation = useNavigation();
   const onChange = (event, selectedDate) => {
@@ -57,10 +57,7 @@ export function OutcomesInsert() {
   function handleSubmit() {
     navigation.navigate("Overview");
     const transaction = { price, title };
-    if (!price || !title || price > 0)
-      return alert(
-        "Insira os detalhes corretamente, para despesas o preço deve ser negativo. "
-      );
+    if (!price || !title) return alert("Insira os detalhes corretamente. ");
     dispatch(addTransaction(transaction));
     setPrice("");
     setTitle("");
@@ -91,12 +88,11 @@ export function OutcomesInsert() {
                     styles.input,
                     (isFocused || isFilled) && { borderColor: "#FFC062" }, //&& seria o então
                   ]}
-                  placeholder="R$ - 00.00"
+                  placeholder="R$ 00.00"
                   onBlur={handleInputBlur}
                   onFocus={handleInputFocus}
                   keyboardType="number-pad"
-                  onChangeText={(price) => setPrice(price)}
-                  defaultValue={price}
+                  onChangeText={(price) => setPrice(price * -1)}
                 />
 
                 <Text style={styles.subTitle}>Data:</Text>

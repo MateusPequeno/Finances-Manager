@@ -6,7 +6,7 @@ import {
 import Animated from "react-native-reanimated";
 import React from "react";
 import { View } from "react-native";
-import { Box } from "../../components/theme";
+import { Box } from "../../styles/globalstyles";
 import styles from "./styles";
 import { Feather } from "@expo/vector-icons";
 

@@ -2,7 +2,7 @@ import React from "react";
 import { View, Text } from "react-native";
 import styles from "./styles";
 import { useDispatch, useSelector } from "react-redux";
-import { Box } from "../../components/theme";
+import { Box } from "../../styles/globalstyles";
 import moment from "moment";
 
 export function Top() {

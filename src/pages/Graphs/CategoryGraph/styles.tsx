@@ -1,9 +1,9 @@
 import { StyleSheet } from "react-native";
-const boxColor = "#e6e2f8";
+import { colors } from "../../../styles/globalstyles";
 
 export default StyleSheet.create({
   boxCategoryGraph: {
-    backgroundColor: boxColor,
+    backgroundColor: colors.boxColor,
     alignSelf: "center",
     overflow: "hidden",
     flex: 1,

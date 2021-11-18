@@ -3,7 +3,7 @@ import { Text, View, SectionList, Dimensions } from "react-native";
 import { useNavigation } from "@react-navigation/core";
 import { TouchableOpacity } from "react-native-gesture-handler";
 import { useDispatch, useSelector } from "react-redux";
-import { Box } from "../../../components/theme";
+import { Box } from "../../../styles/globalstyles";
 import styles from "./styles";
 import { Colors, ProgressBar } from "react-native-paper";
 

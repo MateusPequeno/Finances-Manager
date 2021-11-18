@@ -4,17 +4,24 @@ import {
   ADD_GOAL,
 } from "../actions/types";
 
+interface TransactionsProps {
+  addedTime : any;
+  id : number;
+  title : string;
+  price : number;
+}
+
 const initialState = {
   transactions: [
-    { addedtime: 1576590342000, id: 2, title: "Almoço ", price: -20 },
-    { addedtime: 1576590342000, id: 3, title: "Salário", price: 800 },
-    { addedtime: 1274174256000, id: 4, title: "Saldo no Banco", price: 2000 },
-    { addedtime: 1274174256000, id: 5, title: "Calça Jeans", price: -60 },
-    { addedtime: 1274174256000, id: 6, title: "Transporte", price: -10 },
-    { addedtime: 779879856000, id: 7, title: "Conta de luz ", price: -90 },
-    { addedtime: 779879856000, id: 9, title: "Água", price: -50 },
-    { addedtime: 779879856000, id: 10, title: "Venda da Moto", price: 6000 },
-    { addedtime: 1613682000000, id: 11, title: "Doação", price: -60 },
+    { addedTime: 1576590342000, id: 2, title: "Almoço ", price: -20 },
+    { addedTime: 1576590342000, id: 3, title: "Salário", price: 800 },
+    { addedTime: 1274174256000, id: 4, title: "Saldo no Banco", price: 2000 },
+    { addedTime: 1274174256000, id: 5, title: "Calça Jeans", price: -60 },
+    { addedTime: 1274174256000, id: 6, title: "Transporte", price: -10 },
+    { addedTime: 779879856000, id: 7, title: "Conta de luz ", price: -90 },
+    { addedTime: 779879856000, id: 9, title: "Água", price: -50 },
+    { addedTime: 779879856000, id: 10, title: "Venda da Moto", price: 6000 },
+    { addedTime: 1613682000000, id: 11, title: "Doação", price: -60 },
   ],
   goals: [
     { id: 1, goalTitle: "Casa Própria ", goalPrice: 200000 },
@@ -22,6 +29,8 @@ const initialState = {
     { id: 2, goalTitle: "Moto Honda", goalPrice: 8000 },
   ],
 };
+
+
 
 export default (state = initialState, { type, payload }) => {
   switch (type) {

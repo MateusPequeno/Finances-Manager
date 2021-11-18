@@ -21,23 +21,24 @@ import { addTransaction } from "../../../store/actions/transactionActions";
 import { useDispatch } from "react-redux";
 import { SimpleLineIcons } from "@expo/vector-icons";
 import { InputComponent } from "../../../components/DatesInput/DatesInput";
+import moment from "moment";
 
 export function IncomesInsert() {
   const dispatch = useDispatch();
   const [isFocused, setIsFocused] = useState(false);
   const [isFilled, setIsFilled] = useState(false);
   const [isSelected, setSelection] = useState(false);
-  const [price, setPrice] = useState();
-  const [title, setTitle] = useState();
-  const [addedtime, setAddedTime] = useState(new Date(1598051730000));
+  const [price, setPrice] = useState<number>();
+  const [title, setTitle] = useState<string>();
+  const [addedTime, setAddedTime] = useState(new Date());
   const [mode, setMode] = useState("date");
-  const [show, setShow] = useState(false);
+  const [show, setShow] = useState<boolean>(false);
   const navigation = useNavigation();
   const onChange = (event, selectedDate) => {
-    const currentDate = selectedDate || addedtime;
+    const currentDate = selectedDate || addedTime;
     setShow(Platform.OS === "ios");
     setAddedTime(currentDate);
-    console.log(addedtime);
+    console.log(addedTime);
   };
   const showMode = (currentMode) => {
     setShow(true);
@@ -59,8 +60,8 @@ export function IncomesInsert() {
 
   function handleSubmit() {
     navigation.navigate("Overview");
-    const transaction = { price, title, addedtime };
-    if (!price || !title || !addedtime) return alert("Insira os detalhes");
+    const transaction = { price, title, addedTime };
+    if (!price || !title || !addedTime) return alert("Insira os detalhes");
     dispatch(addTransaction(transaction));
     setPrice("");
     setTitle("");
@@ -96,8 +97,8 @@ export function IncomesInsert() {
                   onBlur={handleInputBlur}
                   onFocus={handleInputFocus}
                   keyboardType="number-pad"
+                  defaultValue=""
                   onChangeText={(price) => setPrice(price)}
-                  defaultValue={price}
                 />
 
                 <Text style={styles.subTitle}>Data:</Text>
@@ -105,11 +106,11 @@ export function IncomesInsert() {
                   style={styles.dataBarView}
                   onPress={showDatepicker}
                 >
-                  <InputComponent
-                    type="number"
-                    style={styles.input}
-                    placeholder={"01/01/2021"}
-                  />
+                  <Text style={styles.input}>
+                    {addedTime !== new Date()
+                      ? moment(addedTime).format("D/MM/Y")
+                      : "01/01/2021"}
+                  </Text>
                   <SimpleLineIcons
                     name="calendar"
                     style={{ marginLeft: -60, paddingTop: 12 }}

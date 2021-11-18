@@ -1,9 +1,9 @@
 import { Dimensions, StyleSheet } from "react-native";
-const boxColor = "#e6e2f8";
-import fonts from "../../styles/fonts";
+import { fonts, colors } from "../../styles/globalstyles";
+
 export default StyleSheet.create({
   boxLimite: {
-    backgroundColor: boxColor,
+    backgroundColor: colors.boxColor,
     overflow: "hidden",
     alignSelf: "center",
     width: Dimensions.get("window").width * 0.95,
