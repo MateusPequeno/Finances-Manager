@@ -62,7 +62,7 @@ export function Transactions() {
   const renderHeader = ({ section: { data } }) => {
     return (
       <Box style={styles.boxHeaderTransaction}>
-        <Text>{moment(data[0].addedTime, "x").format("DD MMM YYYY")}</Text>
+        <Text>{moment(data[0].addedTime).format("DD MMM YYYY")}</Text>
         <Prices time={data[0].addedTime} />
       </Box>
     );

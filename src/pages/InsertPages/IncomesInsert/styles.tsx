@@ -1,4 +1,5 @@
 import { Dimensions, StyleSheet } from "react-native";
+import { marginRight } from "styled-system";
 import { fonts } from "../../../styles/globalstyles";
 export default StyleSheet.create({
   bckImage: {
@@ -51,6 +52,7 @@ export default StyleSheet.create({
   dataBarView: {
     alignItems: "center",
     flexDirection: "row",
+    marginRight: 30,
   },
   rowConfig: {
     marginTop: 10,

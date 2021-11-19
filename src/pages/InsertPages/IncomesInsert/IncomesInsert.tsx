@@ -20,7 +20,6 @@ import bckImage from "../../../../assets/blueBck.jpg";
 import { addTransaction } from "../../../store/actions/transactionActions";
 import { useDispatch } from "react-redux";
 import { SimpleLineIcons } from "@expo/vector-icons";
-import { InputComponent } from "../../../components/DatesInput/DatesInput";
 import moment from "moment";
 
 export function IncomesInsert() {
@@ -31,24 +30,22 @@ export function IncomesInsert() {
   const [price, setPrice] = useState<number>();
   const [title, setTitle] = useState<string>();
   const [addedTime, setAddedTime] = useState(new Date());
-  const [mode, setMode] = useState("date");
+  const [mode, setMode] = useState<any>("date");
   const [show, setShow] = useState<boolean>(false);
   const navigation = useNavigation();
-  const onChange = (event, selectedDate) => {
+  const onChange = (event: any, selectedDate: any) => {
     const currentDate = selectedDate || addedTime;
-    setShow(Platform.OS === "ios");
     setAddedTime(currentDate);
-    console.log(addedTime);
+    console.log("ADDED TIME: ", addedTime);
+    console.log("CURRENT: ", currentDate);
+    setShow(Platform.OS === "ios");
   };
-  const showMode = (currentMode) => {
+  const showMode = (currentMode: string) => {
     setShow(true);
     setMode(currentMode);
   };
   const showDatepicker = () => {
     showMode("date");
-  };
-  const showTimepicker = () => {
-    showMode("time");
   };
   function handleInputBlur() {
     setIsFocused(false);
@@ -65,7 +62,6 @@ export function IncomesInsert() {
     dispatch(addTransaction(transaction));
     setPrice("");
     setTitle("");
-    setAddedTime("");
   }
   return (
     <ImageBackground source={bckImage} style={styles.bckImage}>
@@ -97,10 +93,9 @@ export function IncomesInsert() {
                   onBlur={handleInputBlur}
                   onFocus={handleInputFocus}
                   keyboardType="number-pad"
-                  defaultValue=""
+                  defaultValue={price}
                   onChangeText={(price) => setPrice(price)}
                 />
-
                 <Text style={styles.subTitle}>Data:</Text>
                 <TouchableOpacity
                   style={styles.dataBarView}
@@ -114,17 +109,16 @@ export function IncomesInsert() {
                   <SimpleLineIcons
                     name="calendar"
                     style={{ marginLeft: -60, paddingTop: 12 }}
-                    size={40}
-                    color="black"
+                    size={35}
+                    color="#443C8A"
                     onPress={showDatepicker}
                   />
                 </TouchableOpacity>
                 {show && (
                   <DateTimePicker
                     testID="dateTimePicker"
-                    value={new Date()}
+                    value={addedTime}
                     mode={mode}
-                    is24Hour={true}
                     display="default"
                     onChange={onChange}
                   />
