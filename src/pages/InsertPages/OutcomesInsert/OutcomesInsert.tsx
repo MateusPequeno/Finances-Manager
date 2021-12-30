@@ -10,6 +10,7 @@ import {
   TextInput,
   Platform,
   ImageBackground,
+  TouchableOpacity,
 } from "react-native";
 import { useNavigation } from "@react-navigation/core";
 import { Button } from "../../../../src/components/Button/Button";
@@ -18,6 +19,8 @@ import styles from "./styles";
 import bckImage from "../../../../assets/blueBck.jpg";
 import { addTransaction } from "../../../store/actions/transactionActions";
 import { useDispatch } from "react-redux";
+import { SimpleLineIcons } from "@expo/vector-icons";
+import moment from "moment";
 
 export function OutcomesInsert() {
   const dispatch = useDispatch();
@@ -26,15 +29,17 @@ export function OutcomesInsert() {
   const [isSelected, setSelection] = useState<boolean>(false);
   const [price, setPrice] = useState<number>(0);
   const [title, setTitle] = useState<string>();
-  const [date, setDate] = useState(new Date(1598051730000));
+  const [addedTime, setAddedTime] = useState(new Date());
   const [mode, setMode] = useState("date");
   const [show, setShow] = useState<boolean>(false);
   const titleRef = useRef(null);
   const navigation = useNavigation();
-  const onChange = (event, selectedDate) => {
-    const currentDate = selectedDate || date;
+  const onChange = (event: any, selectedDate: any) => {
+    const currentDate = selectedDate || addedTime;
+    setAddedTime(currentDate);
+    console.log("ADDED TIME: ", addedTime);
+    console.log("CURRENT: ", currentDate);
     setShow(Platform.OS === "ios");
-    setDate(currentDate);
   };
   const showMode = (currentMode) => {
     setShow(true);
@@ -59,7 +64,7 @@ export function OutcomesInsert() {
     const transaction = { price, title };
     if (!price || !title) return alert("Insira os detalhes corretamente. ");
     dispatch(addTransaction(transaction));
-    setPrice("");
+    setPrice(0);
     setTitle("");
   }
   return (
@@ -93,20 +98,32 @@ export function OutcomesInsert() {
                   onFocus={handleInputFocus}
                   keyboardType="number-pad"
                   onChangeText={(price) => setPrice(price * -1)}
+                  
                 />
 
                 <Text style={styles.subTitle}>Data:</Text>
-                <Button
+                <TouchableOpacity
+                  style={styles.dataBarView}
                   onPress={showDatepicker}
-                  style={styles.dateButton}
-                  title="Insira a data"
-                />
+                >
+                  <Text style={styles.input}>
+                    {addedTime !== new Date()
+                      ? moment(addedTime).format("D/MM/Y")
+                      : "01/01/2021"}
+                  </Text>
+                  <SimpleLineIcons
+                    name="calendar"
+                    style={{ marginLeft: -60, paddingTop: 12 }}
+                    size={35}
+                    color="#443C8A"
+                    onPress={showDatepicker}
+                  />
+                </TouchableOpacity>
                 {show && (
                   <DateTimePicker
                     testID="dateTimePicker"
-                    value={new Date()}
+                    value={addedTime}
                     mode={mode}
-                    is24Hour={true}
                     display="default"
                     onChange={onChange}
                   />

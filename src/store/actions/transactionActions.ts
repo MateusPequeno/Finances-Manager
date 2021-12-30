@@ -1,8 +1,17 @@
 import moment from "moment";
 import { ADD_TRANSACTION, DELETE_TRANSACTION, ADD_GOAL } from "./types";
+interface AddTransactionProps {
+  title?: string;
+  price?: number;
+  addedTime?: any;
+}
+interface AddGoalProps {
+  goalTitle?: string;
+  goalPrice?: number;
+}
 
 export const addTransaction =
-  ({ title, price, addedTime }) =>
+  ({ title, price, addedTime }: AddTransactionProps) =>
   (dispatch) => {
     const id = Math.floor(Math.random() * 600000);
 
@@ -17,7 +26,7 @@ export const addTransaction =
   };
 
 export const addGoal =
-  ({ goalTitle, goalPrice }) =>
+  ({ goalTitle, goalPrice }: AddGoalProps) =>
   (dispatch) => {
     const id = Math.floor(Math.random() * 600000);
 

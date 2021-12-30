@@ -12,7 +12,6 @@ import { Top } from "../../components/Top/Top";
 import { Heading } from "../../components/Heading/Heading";
 import { useDispatch, useSelector } from "react-redux";
 import { Box } from "../../styles/globalstyles";
-
 import Expense from "../../components/Expense/Expense";
 import { useValue } from "react-native-reanimated";
 import { deleteTransaction } from "../../store/actions/transactionActions";
@@ -73,11 +72,7 @@ export function Transactions() {
   };
 
   return (
-    <ImageBackground
-      source={bckImage}
-      // resizeMode="cover"
-      style={styles.bckImageTransaction}
-    >
+    <ImageBackground source={bckImage} style={styles.bckImageTransaction}>
       <Heading />
       <Top />
       <Box style={styles.boxTres}>

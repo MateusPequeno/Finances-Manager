@@ -51,6 +51,7 @@ export default StyleSheet.create({
   dataBarView: {
     alignItems: "center",
     flexDirection: "row",
+    marginRight: 30,
   },
   rowConfig: {
     marginTop: 10,

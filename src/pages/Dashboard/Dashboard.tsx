@@ -58,7 +58,13 @@ export function Dashboard() {
             <Text style={styles.saldoGeral} onPress={handleBalancePress}>
               Saldo Geral:
             </Text>
-            <Text onPress={handleBalancePress} style={styles.saldoGeral}>
+            <Text
+              onPress={handleBalancePress}
+              style={[
+                styles.saldoGeral,
+                { color: balance > 0 ? "#000000" : "#FF4500" },
+              ]}
+            >
               R$ :{Math.round(balance * 100) / 100}
             </Text>
             <AntDesign name="eye" size={20} color="grey" />

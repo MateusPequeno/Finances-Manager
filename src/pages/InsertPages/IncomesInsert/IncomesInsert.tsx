@@ -60,7 +60,7 @@ export function IncomesInsert() {
     const transaction = { price, title, addedTime };
     if (!price || !title || !addedTime) return alert("Insira os detalhes");
     dispatch(addTransaction(transaction));
-    setPrice("");
+    setPrice(0);
     setTitle("");
   }
   return (
