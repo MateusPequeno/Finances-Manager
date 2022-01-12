@@ -58,15 +58,6 @@ export function Transactions() {
     dispatch(deleteTransaction(id));
   };
 
-  const renderHeader = ({ section: { data } }) => {
-    return (
-      <Box style={styles.boxHeaderTransaction}>
-        <Text>{moment(data[0].addedTime).format("DD MMM YYYY")}</Text>
-        <Prices time={data[0].addedTime} />
-      </Box>
-    );
-  };
-
   const renderFooter = () => {
     return <Box style={styles.boxFooter}></Box>;
   };
@@ -115,7 +106,6 @@ export function Transactions() {
             );
           }}
           renderSectionFooter={renderFooter}
-          renderSectionHeader={renderHeader}
           sections={DATA}
         />
       </Box>

@@ -2,7 +2,7 @@ import { Dimensions, StyleSheet } from "react-native";
 export default StyleSheet.create({
   buttonRemove: {
     width: 50,
-    height: 30,
+    height: 60,
     backgroundColor: "#E83F5B",
     marginTop: 15,
     borderRadius: 5,
@@ -10,13 +10,12 @@ export default StyleSheet.create({
     position: "relative",
     alignItems: "center",
     right: 3,
-    paddingLeft: 20,
+    paddingLeft: 10,
   },
   box: {
     backgroundColor: "#fff",
     borderBottomWidth: 1,
-    height: 50,
-    //borderRadius: 80,
+    height: 45,
     position: "relative",
     width: Dimensions.get("window").width * 0.9,
     flexDirection: "row",
@@ -31,5 +30,17 @@ export default StyleSheet.create({
     height: 50,
     padding: 24,
     marginBottom: 30,
+  },
+  boxHeaderTransaction: {
+    backgroundColor: "#fff",
+    borderBottomWidth: 1,
+    height: 25,
+    //borderRadius: 80,
+    position: "relative",
+    width: Dimensions.get("window").width * 0.9,
+    flexDirection: "row",
+    overflow: "hidden",
+    paddingHorizontal: 24,
+    borderBottomColor: "#776c6c",
   },
 });

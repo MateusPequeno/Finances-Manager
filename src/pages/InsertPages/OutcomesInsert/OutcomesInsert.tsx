@@ -41,15 +41,12 @@ export function OutcomesInsert() {
     console.log("CURRENT: ", currentDate);
     setShow(Platform.OS === "ios");
   };
-  const showMode = (currentMode) => {
+  const showMode = (currentMode: string) => {
     setShow(true);
     setMode(currentMode);
   };
   const showDatepicker = () => {
     showMode("date");
-  };
-  const showTimepicker = () => {
-    showMode("time");
   };
   function handleInputBlur() {
     setIsFocused(false);
@@ -61,8 +58,9 @@ export function OutcomesInsert() {
 
   function handleSubmit() {
     navigation.navigate("Overview");
-    const transaction = { price, title };
-    if (!price || !title) return alert("Insira os detalhes corretamente. ");
+    const transaction = { price, title, addedTime };
+    if (!price || !title || !addedTime)
+      return alert("Insira os detalhes corretamente. ");
     dispatch(addTransaction(transaction));
     setPrice(0);
     setTitle("");
@@ -98,7 +96,6 @@ export function OutcomesInsert() {
                   onFocus={handleInputFocus}
                   keyboardType="number-pad"
                   onChangeText={(price) => setPrice(price * -1)}
-                  
                 />
 
                 <Text style={styles.subTitle}>Data:</Text>
@@ -128,20 +125,7 @@ export function OutcomesInsert() {
                     onChange={onChange}
                   />
                 )}
-
-                <Text style={styles.subTitle}>Repetir:</Text>
-                <View style={styles.rowConfig}>
-                  <CheckBox
-                    style={styles.checkBox}
-                    value={isSelected}
-                    onValueChange={setSelection}
-                  />
-                  <Text style={styles.subTitle}>
-                    {isSelected
-                      ? "É uma despesa fixa"
-                      : "Não é uma despesa fixa"}
-                  </Text>
-                </View>
+                <View style={{ marginTop: 90 }} />
                 <Button title={"Confirmar"} onPress={handleSubmit} />
               </View>
             </View>

@@ -5,6 +5,7 @@ export default StyleSheet.create({
   bckImage: {
     width: Dimensions.get("window").width * 1,
     height: Dimensions.get("window").height * 1,
+    backgroundColor: "#443C8A",
   },
   container: {
     alignItems: "center",
@@ -62,9 +63,16 @@ export default StyleSheet.create({
   despesasCatego: {
     fontSize: 20,
     fontFamily: fonts.montText,
-    color: "black",
+    color: "#FFC062",
     fontWeight: "bold",
     padding: 28,
+  },
+  goalsView: {
+    flexDirection: "row",
+  },
+  plusIcon: {
+    alignSelf: "center",
+    paddingLeft: 50,
   },
   descriptionTextOBJ: {
     fontSize: 25,

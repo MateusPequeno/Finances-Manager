@@ -5,10 +5,11 @@ import {
 } from "react-native-gesture-handler";
 import Animated from "react-native-reanimated";
 import React from "react";
-import { View } from "react-native";
+import { View, Text } from "react-native";
 import { Box } from "../../styles/globalstyles";
 import styles from "./styles";
 import { Feather } from "@expo/vector-icons";
+import moment from "moment";
 
 interface ExpenseProps {
   onTap: any;
@@ -44,16 +45,20 @@ export default function Expense({
                   onDelete(index);
                 }}
               >
-                <Feather name="trash" size={25} color={"#FFFFFF"} />
+                <Feather name="trash" size={40} color={"#FFFFFF"} />
               </RectButton>
             </View>
           </Animated.View>
         )}
       >
+        <Box style={styles.boxHeaderTransaction}>
+          <Text>{moment(item.addedTime).format("DD MMM YYYY")}</Text>
+        </Box>
         <Box style={styles.box}>
           <View style={{ flex: 1 }}>
             <Animated.View style={styles.animView}>
               <Animated.Text>{item.title}</Animated.Text>
+
               <Animated.Text
                 style={{
                   color: item.price > 0 ? "#009BFC" : "#FF4500",

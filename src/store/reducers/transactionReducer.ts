@@ -2,13 +2,14 @@ import {
   ADD_TRANSACTION,
   DELETE_TRANSACTION,
   ADD_GOAL,
+  DELETE_GOAL,
 } from "../actions/types";
 
 interface TransactionsProps {
-  addedTime : any;
-  id : number;
-  title : string;
-  price : number;
+  addedTime: any;
+  id: number;
+  title: string;
+  price: number;
 }
 
 const initialState = {
@@ -30,8 +31,6 @@ const initialState = {
   ],
 };
 
-
-
 export default (state = initialState, { type, payload }) => {
   switch (type) {
     case ADD_TRANSACTION:
@@ -48,6 +47,11 @@ export default (state = initialState, { type, payload }) => {
       return {
         ...state,
         goals: [payload, ...state.goals],
+      };
+    case DELETE_GOAL:
+      return {
+        ...state,
+        goals: state.goals.filter(({ id }) => id !== payload),
       };
     default:
       return state;

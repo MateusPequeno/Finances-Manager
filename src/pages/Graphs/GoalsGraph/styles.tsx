@@ -31,4 +31,13 @@ export default StyleSheet.create({
     marginBottom: 5,
     fontFamily: fonts.montText,
   },
+  buttonRemove: {
+    width: 35,
+    height: 28,
+    backgroundColor: "#E83F5B",
+    marginLeft: 325,
+    borderRadius: 5,
+    alignItems: "center",
+    marginBottom: 10,
+  },
 });

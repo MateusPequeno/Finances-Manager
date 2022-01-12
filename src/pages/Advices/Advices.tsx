@@ -21,7 +21,7 @@ export function AdvicesGenerator() {
   useEffect(() => {
     if (expense > balance) {
       setAdviceText(
-        "Voce deve dar prioridade para quitação de todas as suas difividas, pois especialistas afirmam com confiança que esse deve ser o primeiro passo primordial a fim de conquistar a independencia financeira"
+        "Voce deve dar prioridade para quitação de todas as suas dividas, pois especialistas afirmam com confiança que esse deve ser o primeiro passo a fim de conquistar a independencia financeira"
       );
     } else if (income > balance && income > expense) {
       setAdviceText(

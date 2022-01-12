@@ -123,20 +123,7 @@ export function IncomesInsert() {
                     onChange={onChange}
                   />
                 )}
-
-                <Text style={styles.subTitle}>Repetir:</Text>
-                <View style={styles.rowConfig}>
-                  <CheckBox
-                    style={styles.checkBox}
-                    value={isSelected}
-                    onValueChange={setSelection}
-                  />
-                  <Text style={styles.subTitle}>
-                    {isSelected
-                      ? "É uma receita fixa"
-                      : "Não é uma receita fixa"}
-                  </Text>
-                </View>
+                <View style={{ marginTop: 90 }} />
                 <Button title={"Confirmar"} onPress={handleSubmit} />
               </View>
             </View>

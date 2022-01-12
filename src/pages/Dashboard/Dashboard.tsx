@@ -2,7 +2,7 @@ import { useNavigation } from "@react-navigation/core";
 import React from "react";
 import { Text, View } from "react-native";
 import { SimpleLineIcons, AntDesign } from "@expo/vector-icons";
-import { ScrollView } from "react-native-gesture-handler";
+import { ScrollView, TouchableOpacity } from "react-native-gesture-handler";
 import styles from "./styles";
 import { useSelector, useDispatch } from "react-redux";
 import { Heading } from "../../components/Heading/Heading";
@@ -11,6 +11,9 @@ import { GoalsGraph } from "../../pages/Graphs/GoalsGraph/GoalsGraph";
 import { Box } from "../../styles/globalstyles";
 import { IncomesMinusExpenses } from "../Graphs/IncomesMinusExpenses/IncomesMinusExpenses";
 import { AdvicesGenerator } from "../Advices/Advices";
+import { IncomesGraph } from "../Graphs/IncomesGraph/IncomesGraph";
+import { OutcomesGraph } from "../Graphs/OutcomesGraph/OutcomesGraph";
+
 import AsyncStorage from "@react-native-async-storage/async-storage";
 
 // Log to show data "inside" local storage aka AsyncStorage.
@@ -35,7 +38,9 @@ export function Dashboard() {
   function handleOutcomesIconPress() {
     navigation.navigate("OutcomesInsert");
   }
-
+  function handleGoalsPress() {
+    navigation.navigate("GoalsInsert");
+  }
   const dispatchDashboard = useDispatch();
   const { transactions } = useSelector((state) => state.trs);
   const prices = transactions.map((transaction: any) => transaction.price);
@@ -50,7 +55,7 @@ export function Dashboard() {
   const income = expense + balance;
 
   return (
-    <ScrollView style={{ backgroundColor: "#a8a6b6" }}>
+    <ScrollView style={{ backgroundColor: "#443C8A" }}>
       <Heading />
       <View style={styles.container}>
         <Box style={styles.boxSaldo}>
@@ -108,11 +113,19 @@ export function Dashboard() {
           </Text>
         )}
       </View>
-      <Text style={styles.despesasCatego}>Metas/objetivos:</Text>
+      <TouchableOpacity onPress={handleGoalsPress} style={styles.goalsView}>
+        <Text style={styles.despesasCatego}>Metas/objetivos: </Text>
+        <AntDesign
+          name="pluscircleo"
+          size={24}
+          color="#FFC062"
+          style={styles.plusIcon}
+        />
+      </TouchableOpacity>
       <GoalsGraph />
       <Text style={styles.despesasCatego}>Gráfico rendimento - despesas:</Text>
       <IncomesMinusExpenses />
-      <Text style={styles.despesasCatego}>Definir Limites de gastos:</Text>
+      <Text style={styles.despesasCatego}> Limites de gastos:</Text>
       <Box style={styles.boxLimite}>
         <Text style={styles.despesasCatego}> Limite de gastos : {balance}</Text>
         <Text style={styles.despesasCatego}> Gastos atuais : {expense}</Text>
@@ -120,9 +133,11 @@ export function Dashboard() {
       <Text style={styles.despesasCatego}>
         Gráfico de desempenho dos rendimentos:
       </Text>
+      <IncomesGraph />
       <Text style={styles.despesasCatego}>
         Gráfico de desempenho das despesas:
       </Text>
+      <OutcomesGraph />
       <Text style={styles.despesasCatego}>Dicas personalizadas:</Text>
       <AdvicesGenerator />
     </ScrollView>

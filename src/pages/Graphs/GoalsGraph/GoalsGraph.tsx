@@ -1,17 +1,16 @@
 import React from "react";
 import { Text, View, SectionList, Dimensions } from "react-native";
 import { useNavigation } from "@react-navigation/core";
-import { TouchableOpacity } from "react-native-gesture-handler";
+import { RectButton, TouchableOpacity } from "react-native-gesture-handler";
 import { useDispatch, useSelector } from "react-redux";
 import { Box } from "../../../styles/globalstyles";
 import styles from "./styles";
 import { Colors, ProgressBar } from "react-native-paper";
+import { Feather } from "@expo/vector-icons";
+import { deleteGoal } from "../../../store/actions/transactionActions";
 
 export function GoalsGraph() {
   const navigation = useNavigation();
-  function handleGoalsPress() {
-    navigation.navigate("GoalsInsert");
-  }
   const dispatch = useDispatch();
   const { transactions, goals } = useSelector((state) => state.trs);
   const prices = transactions.map((transaction: any) => transaction.price);
@@ -33,6 +32,10 @@ export function GoalsGraph() {
     }, {})
   );
 
+  const onDeleteGoal = (id: Number) => {
+    dispatch(deleteGoal(id));
+  };
+
   return (
     <SectionList
       showsVerticalScrollIndicator={false}
@@ -48,7 +51,7 @@ export function GoalsGraph() {
           var goalConcluded = "Parabéns, você bateu essa meta!";
         }
         return (
-          <TouchableOpacity onPress={handleGoalsPress} style={styles.container}>
+          <View style={styles.container}>
             <Box style={styles.boxGoals}>
               <Text style={styles.goalTitleText}> {item.goalTitle} </Text>
               <Text style={styles.goalAchieved}>{goalConcluded}</Text>
@@ -77,8 +80,16 @@ export function GoalsGraph() {
                   </Text>
                 </View>
               </View>
+              <RectButton
+                style={styles.buttonRemove}
+                onPress={() => {
+                  onDeleteGoal(item.id);
+                }}
+              >
+                <Feather name="trash" size={25} color={"#FFFFFF"} />
+              </RectButton>
             </Box>
-          </TouchableOpacity>
+          </View>
         );
       }}
       sections={DATA}

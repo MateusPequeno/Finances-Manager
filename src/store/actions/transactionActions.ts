@@ -1,5 +1,10 @@
 import moment from "moment";
-import { ADD_TRANSACTION, DELETE_TRANSACTION, ADD_GOAL } from "./types";
+import {
+  ADD_TRANSACTION,
+  DELETE_TRANSACTION,
+  ADD_GOAL,
+  DELETE_GOAL,
+} from "./types";
 interface AddTransactionProps {
   title?: string;
   price?: number;
@@ -41,6 +46,10 @@ export const addGoal =
 
 export const deleteTransaction = (id) => (dispatch, getState) => {
   dispatch({ type: DELETE_TRANSACTION, payload: id });
+};
+
+export const deleteGoal = (id) => (dispatch, getState) => {
+  dispatch({ type: DELETE_GOAL, payload: id });
 };
 /*
 export const mainTime = () => {
