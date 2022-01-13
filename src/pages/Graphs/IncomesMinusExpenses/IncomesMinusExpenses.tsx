@@ -2,11 +2,13 @@ import React from "react";
 import { Dimensions } from "react-native";
 import { BarChart } from "react-native-chart-kit";
 import { useSelector } from "react-redux";
+import styles from "./styles";
+import { Box } from "../../../styles/globalstyles";
 
 const chartConfig = {
-  backgroundGradientFrom: "#ffffff",
+  backgroundGradientFrom: "#e6e2f8",
   backgroundGradientFromOpacity: 1,
-  backgroundGradientTo: "#ffffff",
+  backgroundGradientTo: "#e6e2f8",
   backgroundGradientToOpacity: 1,
   color: (opacity = 1) => `#000000`,
 };
@@ -35,17 +37,19 @@ export function IncomesMinusExpenses() {
   };
 
   return (
-    <BarChart
-      style={{ alignSelf: "center", borderRadius: 10 }}
-      data={data}
-      width={Dimensions.get("window").width * 0.95}
-      height={220}
-      yAxisLabel="$"
-      chartConfig={chartConfig}
-      fromZero={true}
-      showBarTops={true}
-      showValuesOnTopOfBars={true}
-      withInnerLines={false}
-    />
+    <Box style={styles.boxCategoryGraph}>
+      <BarChart
+        style={{ alignSelf: "center", borderRadius: 10 }}
+        data={data}
+        width={Dimensions.get("window").width * 0.95}
+        height={220}
+        yAxisLabel="$"
+        chartConfig={chartConfig}
+        fromZero={true}
+        showBarTops={true}
+        showValuesOnTopOfBars={true}
+        withInnerLines={false}
+      />
+    </Box>
   );
 }

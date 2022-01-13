@@ -9,9 +9,9 @@ import { Colors, ProgressBar } from "react-native-paper";
 import { LineChart } from "react-native-chart-kit";
 
 const chartConfig = {
-  backgroundGradientFrom: "#ffffff",
+  backgroundGradientFrom: "#e6e2f8",
   backgroundGradientFromOpacity: 1,
-  backgroundGradientTo: "#ffffff",
+  backgroundGradientTo: "#e6e2f8",
   backgroundGradientToOpacity: 1,
   color: (opacity = 1) => `#000000`,
 };
@@ -131,8 +131,6 @@ export function IncomesGraph() {
     incomesInDez
       .map((saldo) => saldo.price)
       .reduce((prev: number, cur: number) => (prev += cur), 0) * 1;
-
-  console.log(totalIncomesMar);
 
   const data = {
     labels: [

@@ -1,7 +1,7 @@
 import { useNavigation } from "@react-navigation/core";
-import React from "react";
+import React, { useState } from "react";
 import { Text, View } from "react-native";
-import { SimpleLineIcons, AntDesign } from "@expo/vector-icons";
+import { SimpleLineIcons, AntDesign, Feather } from "@expo/vector-icons";
 import { ScrollView, TouchableOpacity } from "react-native-gesture-handler";
 import styles from "./styles";
 import { useSelector, useDispatch } from "react-redux";
@@ -29,12 +29,11 @@ AsyncStorage.getAllKeys((err, keys) => {
 export function Dashboard() {
   const dispatch = useDispatch();
   const navigation = useNavigation();
-  function handleBalancePress() {
-    navigation.navigate("BalanceInsert");
-  }
+
   function handleIncomesIconPress() {
     navigation.navigate("IncomesInsert");
   }
+
   function handleOutcomesIconPress() {
     navigation.navigate("OutcomesInsert");
   }
@@ -54,25 +53,57 @@ export function Dashboard() {
       .reduce((prev: number, cur: number) => (prev += cur), 0) * -1;
   const income = expense + balance;
 
+  const [hideData, setHideData] = useState(false);
+
+  function changeHideDataStatus() {
+    console.log(hideData);
+    setHideData((prev) => !prev);
+  }
   return (
     <ScrollView style={{ backgroundColor: "#443C8A" }}>
       <Heading />
       <View style={styles.container}>
         <Box style={styles.boxSaldo}>
           <View style={styles.card}>
-            <Text style={styles.saldoGeral} onPress={handleBalancePress}>
-              Saldo Geral:
-            </Text>
-            <Text
-              onPress={handleBalancePress}
-              style={[
-                styles.saldoGeral,
-                { color: balance > 0 ? "#000000" : "#FF4500" },
-              ]}
-            >
-              R$ :{Math.round(balance * 100) / 100}
-            </Text>
-            <AntDesign name="eye" size={20} color="grey" />
+            <Text style={styles.saldoGeral}>Saldo Geral:</Text>
+            {hideData ? (
+              <Text
+                style={[
+                  styles.saldoGeral,
+                  { color: balance > 0 ? "#000000" : "#FF4500" },
+                ]}
+              >
+                R$ :{Math.round(balance * 100) / 100}
+              </Text>
+            ) : (
+              <Text
+                style={[
+                  styles.saldoGeral,
+                  { color: balance > 0 ? "#000000" : "#FF4500" },
+                ]}
+              >
+                R$ :
+              </Text>
+            )}
+            {hideData ? (
+              <Feather
+                name="eye"
+                size={20}
+                color="black"
+                onPress={() => {
+                  changeHideDataStatus();
+                }}
+              />
+            ) : (
+              <Feather
+                name="eye-off"
+                size={20}
+                color="black"
+                onPress={() => {
+                  changeHideDataStatus();
+                }}
+              />
+            )}
             <View style={styles.incomesAndDebt}>
               <SimpleLineIcons
                 name="arrow-down-circle"
@@ -82,9 +113,13 @@ export function Dashboard() {
               />
               <View style={styles.textosIncAndDebt}>
                 <Text style={styles.despesa}> Despesas </Text>
-                <Text style={styles.despesaValor}>
-                  R$ : {Math.round(expense * 100) / 100}
-                </Text>
+                {hideData ? (
+                  <Text style={styles.despesaValor}>
+                    R$ : {Math.round(expense * 100) / 100}
+                  </Text>
+                ) : (
+                  <Text style={styles.despesaValor}>R$ :</Text>
+                )}
               </View>
               <SimpleLineIcons
                 name="arrow-up-circle"
@@ -94,9 +129,13 @@ export function Dashboard() {
               />
               <View style={styles.textosIncAndDebt}>
                 <Text style={styles.rendimento}> Rendimentos </Text>
-                <Text style={styles.rendimentoValor}>
-                  R$ :{Math.round(income * 100) / 100}
-                </Text>
+                {hideData ? (
+                  <Text style={styles.rendimentoValor}>
+                    R$ :{Math.round(income * 100) / 100}
+                  </Text>
+                ) : (
+                  <Text style={styles.rendimentoValor}>R$ :</Text>
+                )}
               </View>
             </View>
           </View>
@@ -117,7 +156,7 @@ export function Dashboard() {
         <Text style={styles.despesasCatego}>Metas/objetivos: </Text>
         <AntDesign
           name="pluscircleo"
-          size={24}
+          size={28}
           color="#FFC062"
           style={styles.plusIcon}
         />
@@ -127,8 +166,8 @@ export function Dashboard() {
       <IncomesMinusExpenses />
       <Text style={styles.despesasCatego}> Limites de gastos:</Text>
       <Box style={styles.boxLimite}>
-        <Text style={styles.despesasCatego}> Limite de gastos : {balance}</Text>
-        <Text style={styles.despesasCatego}> Gastos atuais : {expense}</Text>
+        <Text style={styles.limitText}>Limite de gastos : {balance}</Text>
+        <Text style={styles.limitText}> Gastos atuais : {expense}</Text>
       </Box>
       <Text style={styles.despesasCatego}>
         Gráfico de desempenho dos rendimentos:

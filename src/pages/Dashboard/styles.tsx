@@ -63,9 +63,16 @@ export default StyleSheet.create({
   despesasCatego: {
     fontSize: 20,
     fontFamily: fonts.montText,
-    color: "#FFC062",
+    color: "#ffffff",
     fontWeight: "bold",
     padding: 28,
+  },
+  limitText: {
+    fontSize: 20,
+    fontFamily: fonts.montText,
+    color: "#000",
+    fontWeight: "bold",
+    padding: 10,
   },
   goalsView: {
     flexDirection: "row",

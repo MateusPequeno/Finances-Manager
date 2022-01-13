@@ -32,16 +32,7 @@ export function BalanceInsert() {
     setIsFilled(!!value);
     setBalance(value);
   }
-  async function handleSubmit() {
-    try {
-      if (!balance)
-        return Alert.alert("Me diga seu saldo mesmo que seja 0 ou negativo 😂");
-      await AsyncStorage.setItem("@tcc-app:balance", balance);
-      navigation.navigate("Dashboard");
-    } catch {
-      Alert.alert("Não foi possível salvar o saldo de usuário");
-    }
-  }
+
   return (
     <ImageBackground
       source={bckImage}
@@ -67,7 +58,7 @@ export function BalanceInsert() {
                   onChangeText={handleInputChange}
                 />
                 <View style={styles.footer}>
-                  <Button title="Continuar" onPress={handleSubmit} />
+                  <Button title="Continuar" onPress={() => {}} />
                 </View>
               </View>
             </View>
