@@ -143,7 +143,7 @@ export function Dashboard() {
       </View>
 
       <View style={{ marginTop: 20, marginBottom: 20 }}>
-        <Text style={styles.despesasCatego}>Despesas por categoria:</Text>
+        <Text style={styles.despesasCatego}>Gráfico de despesas:</Text>
         {expense > 0 ? (
           <CategoryGraph />
         ) : (

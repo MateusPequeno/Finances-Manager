@@ -14,7 +14,6 @@ export default StyleSheet.create({
     fontSize: 50,
     textAlign: "center",
     color: "white",
-    flex: 1,
     marginTop: "15%",
     fontFamily: fonts.heading,
   },
