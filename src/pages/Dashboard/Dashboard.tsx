@@ -1,5 +1,5 @@
 import { useNavigation } from "@react-navigation/core";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Text, View } from "react-native";
 import { SimpleLineIcons, AntDesign, Feather } from "@expo/vector-icons";
 import { ScrollView, TouchableOpacity } from "react-native-gesture-handler";
@@ -15,16 +15,17 @@ import { IncomesGraph } from "../Graphs/IncomesGraph/IncomesGraph";
 import { OutcomesGraph } from "../Graphs/OutcomesGraph/OutcomesGraph";
 
 import AsyncStorage from "@react-native-async-storage/async-storage";
+import * as Notifications from "expo-notifications";
 
 // Log to show data "inside" local storage aka AsyncStorage.
-AsyncStorage.getAllKeys((err, keys) => {
+/* AsyncStorage.getAllKeys((err, keys) => {
   AsyncStorage.multiGet(keys, (error, stores) => {
     stores.map((result, i, store) => {
       console.log("Dados :", { [store[i][0]]: store[i][1] }, "\n");
       return true;
     });
   });
-});
+}); */
 
 export function Dashboard() {
   const dispatch = useDispatch();
@@ -53,12 +54,58 @@ export function Dashboard() {
       .reduce((prev: number, cur: number) => (prev += cur), 0) * -1;
   const income = expense + balance;
 
-  const [hideData, setHideData] = useState(false);
+  const [hideData, setHideData] = useState(true);
 
   function changeHideDataStatus() {
-    console.log(hideData);
     setHideData((prev) => !prev);
   }
+
+  async function createNotifications() {
+    //Notifications.cancelAllScheduledNotificationsAsync();
+
+    const notificationId = Notifications.scheduleNotificationAsync({
+      content: {
+        title: "Boa noite! 📅",
+        body: "Não esqueça de atualizar suas transações hoje! 💰 ",
+        sound: true,
+        priority: Notifications.AndroidNotificationPriority.HIGH,
+      },
+      trigger: {
+        hour: 22,
+        minute: 0,
+        repeats: true,
+      },
+    });
+    const notificationMonthEnd = Notifications.scheduleNotificationAsync({
+      content: {
+        title: "Olá! 📅",
+        body: "O mês ta acabando, não esqueça de atualizar suas transações desse mês! 🏦",
+        sound: true,
+        priority: Notifications.AndroidNotificationPriority.HIGH,
+      },
+      trigger: {
+        seconds: 2628000,
+      },
+    });
+
+    const notificationYearsEnding = Notifications.scheduleNotificationAsync({
+      content: {
+        title: "Obrigado! 😃",
+        body: "Hoje faz um ano que está usando o FinancesManager!",
+        sound: true,
+        priority: Notifications.AndroidNotificationPriority.HIGH,
+      },
+      trigger: {
+        seconds: 31536000,
+      },
+    });
+
+    console.log("Finalizou createNotification");
+  }
+  useEffect(() => {
+    createNotifications();
+  }, []);
+
   return (
     <ScrollView style={{ backgroundColor: "#443C8A" }}>
       <Heading />
