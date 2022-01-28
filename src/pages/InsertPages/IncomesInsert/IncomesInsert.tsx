@@ -36,8 +36,7 @@ export function IncomesInsert() {
   const onChange = (event: any, selectedDate: any) => {
     const currentDate = selectedDate || addedTime;
     setAddedTime(currentDate);
-    console.log("ADDED TIME: ", addedTime);
-    console.log("CURRENT: ", currentDate);
+
     setShow(Platform.OS === "ios");
   };
   const showMode = (currentMode: string) => {
@@ -93,7 +92,6 @@ export function IncomesInsert() {
                   onBlur={handleInputBlur}
                   onFocus={handleInputFocus}
                   keyboardType="number-pad"
-                  defaultValue={price}
                   onChangeText={(price) => setPrice(price)}
                 />
                 <Text style={styles.subTitle}>Data:</Text>

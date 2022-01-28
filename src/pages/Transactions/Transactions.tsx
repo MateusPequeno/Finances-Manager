@@ -7,6 +7,8 @@ import {
   SectionList,
   StyleSheet,
   Animated,
+  ScrollView,
+  FlatList,
 } from "react-native";
 import { Top } from "../../components/Top/Top";
 import { Heading } from "../../components/Heading/Heading";
@@ -15,6 +17,7 @@ import { Box } from "../../styles/globalstyles";
 import Expense from "../../components/Expense/Expense";
 import { useValue } from "react-native-reanimated";
 import { deleteTransaction } from "../../store/actions/transactionActions";
+import { TransactionCard } from "../../components/TransactionCard";
 import styles from "./styles";
 import moment from "moment";
 
@@ -66,49 +69,16 @@ export function Transactions() {
     <ImageBackground source={bckImage} style={styles.bckImageTransaction}>
       <Heading />
       <Top />
-      <Box style={styles.boxTres}>
-        <SectionList
-          showsVerticalScrollIndicator={false}
-          scrollEventThrottle={16}
-          bounces={false}
-          keyExtractor={(item, index) => item + index}
-          renderItem={({ item }) => {
-            const index = item.id;
-            return (
-              <Animated.View
-                style={{ borderRadius: 20, backgroundColor: "red" }}
-              >
-                <Box style={styles.boxQuatro}>
-                  <Animated.View style={{ backgroundColor: "white" }}>
-                    <Expense
-                      onTap={() => {
-                        active.setValue(index);
-                      }}
-                      {...{ index, onDelete, item, allDates }}
-                    >
-                      <Box style={styles.boxCinco}>
-                        <View style={[StyleSheet.absoluteFill, {}]}>
-                          <Animated.View
-                            style={{
-                              justifyContent: "space-between",
-                              flexDirection: "row",
-                              alignItems: "center",
-                              height: 50,
-                              paddingHorizontal: 8,
-                            }}
-                          ></Animated.View>
-                        </View>
-                      </Box>
-                    </Expense>
-                  </Animated.View>
-                </Box>
-              </Animated.View>
-            );
-          }}
-          renderSectionFooter={renderFooter}
-          sections={DATA}
-        />
-      </Box>
+      <View style={styles.boxTres}>
+        <View style={styles.transaction}>
+          <FlatList
+            data={transactions}
+            showsVerticalScrollIndicator={false}
+            keyExtractor={(item) => item.id.toString()}
+            renderItem={({ item }) => <TransactionCard data={item} />}
+          />
+        </View>
+      </View>
     </ImageBackground>
   );
 }

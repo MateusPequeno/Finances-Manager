@@ -33,7 +33,7 @@ export default StyleSheet.create({
     paddingRight: 24,
     paddingBottom: 10,
     paddingTop: 10,
-    marginBottom: 10,
+    marginBottom: 0,
   },
   boxQuatro: {
     overflow: "hidden",
@@ -51,5 +51,10 @@ export default StyleSheet.create({
     height: Dimensions.get("window").height * 0.048,
     // position: "relative",
     backgroundColor: "white",
+  },
+  transaction: {
+    flex: 1,
+
+    padding: 24,
   },
 });
