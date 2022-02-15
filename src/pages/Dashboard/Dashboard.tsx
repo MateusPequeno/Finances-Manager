@@ -13,6 +13,7 @@ import { IncomesMinusExpenses } from "../Graphs/IncomesMinusExpenses/IncomesMinu
 import { AdvicesGenerator } from "../Advices/Advices";
 import { IncomesGraph } from "../Graphs/IncomesGraph/IncomesGraph";
 import { OutcomesGraph } from "../Graphs/OutcomesGraph/OutcomesGraph";
+import { LogBox } from "react-native";
 
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import * as Notifications from "expo-notifications";
@@ -28,6 +29,10 @@ import * as Notifications from "expo-notifications";
 }); */
 
 export function Dashboard() {
+  useEffect(() => {
+    LogBox.ignoreLogs(["VirtualizedLists should never be nested"]);
+  }, []);
+
   const dispatch = useDispatch();
   const navigation = useNavigation();
 

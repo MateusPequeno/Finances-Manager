@@ -59,7 +59,7 @@ export function IncomesInsert() {
     const transaction = { price, title, addedTime };
     if (!price || !title || !addedTime) return alert("Insira os detalhes");
     dispatch(addTransaction(transaction));
-    setPrice(0);
+    setPrice(undefined);
     setTitle("");
   }
   return (
@@ -93,6 +93,7 @@ export function IncomesInsert() {
                   onFocus={handleInputFocus}
                   keyboardType="number-pad"
                   onChangeText={(price) => setPrice(price)}
+                  defaultValue={price?.toString()}
                 />
                 <Text style={styles.subTitle}>Data:</Text>
                 <TouchableOpacity
