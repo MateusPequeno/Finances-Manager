@@ -13,42 +13,13 @@ Financial independence is the dream of many people, the advantages of acquiring 
 <br>
 <br>
  <img src="assets/teste2.png" >
-<table style="padding:10px">
-  <tr>
-    <td> 
-         <img src="assets/welcomeImage.png" alt="1" width = 279px height = 496px ></td>
- <td><img src="assets/objective.png" align="right" alt="2" width = 279px height = 496px></td>
-   <td><img src="assets/startSaving.png" alt="3" width = 288px height = 512px></td>
-  </tr>
-</table>
 
-<table style="padding:10px">
-  <tr>
-    <td> 
-         <img src="assets/metas.png" alt="1" width = 279px height = 496px ></td>
- <td><img src="assets/mainDashboard.png" align="right" alt="2" width = 279px height = 496px></td>
-   <td><img  src="assets/addNickName.png" alt="3" width = 288px height = 512px></td>
-  </tr>
-</table>
+<br>
+<br>
 
-<table style="padding:10px">
-  <tr>
-    <td> 
-         <img src="assets/graphRendimentos.png" alt="1" width = 279px height = 496px ></td>
- <td><img src="assets/excluindoRendDespesa.png" align="right" alt="2" width = 279px height = 496px></td>
-   <td><img  src="assets/graphDesempenhoDespesa.png" alt="3" width = 288px height = 512px></td>
-  </tr>
-</table>
-
-<table style="padding:10px">
-  <tr>
-    <td> 
-         <img src="assets/outcomeInsert.png" alt="1" width = 279px height = 496px ></td>
- <td><img src="assets/notifications.png" align="right" alt="2" width = 279px height = 600px></td>
-
-  </tr>
-</table>
-
+ <img src="assets/teste33.png" >
+<br>
+<br>
 # 🚀 Technologies
 
 - [Expo](https://expo.io/)
