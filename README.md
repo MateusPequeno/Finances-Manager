@@ -17,7 +17,7 @@ Financial independence is the dream of many people, the advantages of acquiring 
   <tr>
     <td align="center">
       <a href="#">
-      <img src="assets/welcomeImage.png" width="200" /> <br>
+      <img src="assets/welcomeImage.png" width="100" /> <br>
         <sub>
           <b>Iuri Silva</b>
         </sub>
@@ -25,7 +25,7 @@ Financial independence is the dream of many people, the advantages of acquiring 
     </td>
     <td align="center">
       <a href="#">
-        <img src="assets/objective.png" width="200" /> <br>
+        <img src="assets/objective.png" width="100" /> <br>
         <sub>
           <b>Mark Zuckerberg</b>
         </sub>
@@ -33,7 +33,7 @@ Financial independence is the dream of many people, the advantages of acquiring 
     </td>
     <td align="center">
       <a href="#">
-         <img src="assets/startSaving.png" width="200" /> <br>
+         <img src="assets/startSaving.png" width="100" /> <br>
         <sub>
           <b>Steve Jobs</b>
         </sub>
@@ -42,7 +42,7 @@ Financial independence is the dream of many people, the advantages of acquiring 
     
         <td align="center">
       <a href="#">
-          <img src="assets/metas.png" width="200" /> <br>
+          <img src="assets/metas.png" width="100" /> <br>
         <sub>
           <b>Steve Jobs</b>
         </sub>
@@ -51,7 +51,7 @@ Financial independence is the dream of many people, the advantages of acquiring 
     
         <td align="center">
       <a href="#">
-          <img src="assets/mainDashboard.png" width="200" />  <br>
+          <img src="assets/mainDashboard.png" width="100" />  <br>
         <sub>
           <b>Steve Jobs</b>
         </sub>
