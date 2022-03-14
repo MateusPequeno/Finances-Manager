@@ -67,52 +67,59 @@ Financial independence is the dream of many people, the advantages of acquiring 
       </a>
     </td>
     
+          <td align="center">
+      <a href="#">
+    <img src="assets/graphRendimentos.png" width="200" />  <br>
+        <sub>
+          <b>Steve Jobs</b>
+        </sub>
+      </a>
+    </td>
+    
+    
+       <td align="center">
+      <a href="#">
+     <img src="assets/excluindoRendDespesa.png" width="200" />  <br>
+        <sub>
+          <b>Steve Jobs</b>
+        </sub>
+      </a>
+    </td>
+    
+           <td align="center">
+      <a href="#">
+   <img src="assets/graphDesempenhoDespesa.png" width="200" /> <br>
+        <sub>
+          <b>Steve Jobs</b>
+        </sub>
+      </a>
+    </td>
+    
+               <td align="center">
+      <a href="#">
+   <img src="assets/outcomeInsert.png" width="200" />  <br>
+        <sub>
+          <b>Steve Jobs</b>
+        </sub>
+      </a>
+    </td>
+    
+    
+                   <td align="center">
+      <a href="#">
+  <img src="assets/notifications.png" width="200" />   <br>
+        <sub>
+          <b>Steve Jobs</b>
+        </sub>
+      </a>
+    </td>
+    
+    
     
   </tr>
 </table>
 
 
-<div display = "flex" justifyContent = "row" flexDirection = "row"> 
-<div align="center">
-  <img src="assets/welcomeImage.png" width="200" /> 
-</div>
-
-<div align="center">
-  <img src="assets/objective.png" width="200" /> 
-</div>
-
-</div>
-<div align="center">
-  <img src="assets/startSaving.png" width="200" /> 
-</div>
-<div align="center">
-  <img src="assets/metas.png" width="200" /> 
-</div>
-<div align="center">
-  <img src="assets/mainDashboard.png" width="200" /> 
-</div>
-<div align="center">
-  <img src="assets/addNickName.png" width="200" /> 
-</div>
-<div align="center">
-  <img src="assets/graphRendimentos.png" width="200" /> 
-</div>
-
-<div align="center">
-  <img src="assets/excluindoRendDespesa.png" width="200" /> 
-</div>
-
-<div align="center">
-  <img src="assets/graphDesempenhoDespesa.png" width="200" /> 
-</div>
-
-<div align="center">
-  <img src="assets/outcomeInsert.png" width="200" /> 
-</div>
-
-<div align="center">
-  <img src="assets/notifications.png" width="200" /> 
-</div>
 # 🚀 Technologies
 
 - [Expo](https://expo.io/)
