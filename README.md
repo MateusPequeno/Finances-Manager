@@ -18,25 +18,18 @@ Financial independence is the dream of many people, the advantages of acquiring 
     <td align="center">
       <a href="#">
           <img src="assets/welcomeImage.png" width="200" /> <br>
-        <sub>
-          <b>Iuri Silva</b>
-        </sub>
       </a>
     </td>
     <td align="center">
-      <a href="#">
+ 
           <img src="assets/welcomeImage.png" width="200" /> <br>
-        <sub>
-          <b>Mark Zuckerberg</b>
-        </sub>
-      </a>
+ 
+   
     </td>
     <td align="center">
       <a href="#">
        <img src="assets/welcomeImage.png" width="200" /> 
-        <sub>
-          <b>Steve Jobs</b>
-        </sub>
+
       </a>
     </td>
   </tr>
