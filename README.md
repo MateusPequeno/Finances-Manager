@@ -32,68 +32,12 @@ Financial independence is the dream of many people, the advantages of acquiring 
          <img src="assets/startSaving.png" width="300" /> <br>
    
       </a>
-    </td>
-        <td align="center">
-      <a href="#">
-          <img src="assets/metas.png" width="300" /> <br>
+        </tr>
    
-      </a>
-    </td>
-    
-        <td align="center">
-      <a href="#">
-          <img src="assets/mainDashboard.png" width="100" />  <br>
-  
-      </a>
-    </td>
-    
-        <td align="center">
-      <a href="#">
-     <img src="assets/addNickName.png" width="200" /> <br>
-    
-      </a>
-    </td>
-    
-          <td align="center">
-      <a href="#">
-    <img src="assets/graphRendimentos.png" width="200" />  <br>
-     
-      </a>
-    </td>
-    
-    
-       <td align="center">
-      <a href="#">
-     <img src="assets/excluindoRendDespesa.png" width="200" />  <br>
-     
-      </a>
-    </td>
-    
-           <td align="center">
-      <a href="#">
-   <img src="assets/graphDesempenhoDespesa.png" width="200" /> <br>
-  
-      </a>
-    </td>
-    
-               <td align="center">
-      <a href="#">
-   <img src="assets/outcomeInsert.png" width="200" />  <br>
-   
-      </a>
-    </td>
-    
-    
-                   <td align="center">
-      <a href="#">
-  <img src="assets/notifications.png" width="200" />   <br>
-      
-      </a>
-    </td>
     
     
     
-  </tr>
+
 </table>
 
 
