@@ -13,7 +13,7 @@ Financial independence is the dream of many people, the advantages of acquiring 
 <br>
 <br>
 
-<table>
+<table style="padding:10px">
   <tr>
     <td> <img src="assets/welcomeImage.png"  alt="1" width = 360px height = 640px ></td>
 
