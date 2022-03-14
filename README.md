@@ -44,7 +44,7 @@ Financial independence is the dream of many people, the advantages of acquiring 
   <tr>
     <td> 
          <img src="assets/outcomeInsert.png" alt="1" width = 279px height = 496px ></td>
- <td><img src="assets/notifications.png" align="right" alt="2" width = 279px height = 496px></td>
+ <td><img src="assets/notifications.png" align="right" alt="2" width = 320px height = 496px></td>
 
   </tr>
 </table>
