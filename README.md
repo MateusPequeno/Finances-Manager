@@ -21,15 +21,14 @@ Financial independence is the dream of many people, the advantages of acquiring 
       </a>
     </td>
     <td align="center">
- 
+      <a href="#">
           <img src="assets/welcomeImage.png" width="200" /> <br>
- 
+      </a>
    
     </td>
     <td align="center">
       <a href="#">
-       <img src="assets/welcomeImage.png" width="200" /> 
-
+          <img src="assets/welcomeImage.png" width="200" /> <br>
       </a>
     </td>
   </tr>
