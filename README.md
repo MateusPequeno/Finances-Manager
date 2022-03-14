@@ -20,6 +20,9 @@ Financial independence is the dream of many people, the advantages of acquiring 
  <img src="assets/teste33.png" >
 <br>
 <br>
+ <img src="assets/teste44.png" >
+<br>
+<br>
 # 🚀 Technologies
 
 - [Expo](https://expo.io/)
