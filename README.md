@@ -17,62 +17,47 @@ Financial independence is the dream of many people, the advantages of acquiring 
   <tr>
     <td align="center">
       <a href="#">
-      <img src="assets/welcomeImage.png" width="100" /> <br>
-        <sub>
-          <b>Iuri Silva</b>
-        </sub>
+      <img src="assets/welcomeImage.png" width="300" /> <br>
+  
       </a>
     </td>
     <td align="center">
       <a href="#">
-        <img src="assets/objective.png" width="100" /> <br>
-        <sub>
-          <b>Mark Zuckerberg</b>
-        </sub>
+        <img src="assets/objective.png" width="300" /> <br>
+   
       </a>
     </td>
     <td align="center">
       <a href="#">
-         <img src="assets/startSaving.png" width="100" /> <br>
-        <sub>
-          <b>Steve Jobs</b>
-        </sub>
+         <img src="assets/startSaving.png" width="300" /> <br>
+   
       </a>
     </td>
-    
         <td align="center">
       <a href="#">
-          <img src="assets/metas.png" width="100" /> <br>
-        <sub>
-          <b>Steve Jobs</b>
-        </sub>
+          <img src="assets/metas.png" width="300" /> <br>
+   
       </a>
     </td>
     
         <td align="center">
       <a href="#">
           <img src="assets/mainDashboard.png" width="100" />  <br>
-        <sub>
-          <b>Steve Jobs</b>
-        </sub>
+  
       </a>
     </td>
     
         <td align="center">
       <a href="#">
      <img src="assets/addNickName.png" width="200" /> <br>
-        <sub>
-          <b>Steve Jobs</b>
-        </sub>
+    
       </a>
     </td>
     
           <td align="center">
       <a href="#">
     <img src="assets/graphRendimentos.png" width="200" />  <br>
-        <sub>
-          <b>Steve Jobs</b>
-        </sub>
+     
       </a>
     </td>
     
@@ -80,27 +65,21 @@ Financial independence is the dream of many people, the advantages of acquiring 
        <td align="center">
       <a href="#">
      <img src="assets/excluindoRendDespesa.png" width="200" />  <br>
-        <sub>
-          <b>Steve Jobs</b>
-        </sub>
+     
       </a>
     </td>
     
            <td align="center">
       <a href="#">
    <img src="assets/graphDesempenhoDespesa.png" width="200" /> <br>
-        <sub>
-          <b>Steve Jobs</b>
-        </sub>
+  
       </a>
     </td>
     
                <td align="center">
       <a href="#">
    <img src="assets/outcomeInsert.png" width="200" />  <br>
-        <sub>
-          <b>Steve Jobs</b>
-        </sub>
+   
       </a>
     </td>
     
@@ -108,9 +87,7 @@ Financial independence is the dream of many people, the advantages of acquiring 
                    <td align="center">
       <a href="#">
   <img src="assets/notifications.png" width="200" />   <br>
-        <sub>
-          <b>Steve Jobs</b>
-        </sub>
+      
       </a>
     </td>
     
